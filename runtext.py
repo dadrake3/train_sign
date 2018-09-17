@@ -10,7 +10,7 @@ import time
 
 api_key = 'cc01eeec160945bb92713eacb27b7548'
 fmt = '%Y-%m-%dT%H:%M:%S'
-url = 'http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=cc01eeec160945bb92713eacb27b7548&mapid=40660&outputType=JSON&max=2'
+url = 'http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=cc01eeec160945bb92713eacb27b7548&mapid=40660&outputType=JSON'
 
 
 #get all stops near you, claculate closest L times by inclusind walking distance from google earth api
@@ -23,24 +23,24 @@ class RunText(SampleBase):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
         font.LoadFont("../../../fonts/7x13.bdf")
-        textColor = graphics.Color(255, 128, 128)
+        textColor = graphics.Color(255, 255, 0)
 
         while True:
             curr_msg = 'here'
 
-            # arrivals = self.get_trains()
-            arrivals = [1,1,1,1]
+            arrivals = self.get_trains()
+            # arrivals = [1,1,1,1]
             for train in arrivals:
                 # pos = offscreen_canvas.width
-                text = 'Kimball'#train['dest']
+                text = train['dest']
                 text_length = 7 * (len(text))
                 stop_x = int((text_length + 64) / 2) # 64 - (64 - text_length) / 2
 
                 self.blank_screen(0.5, offscreen_canvas, font)
-                self.scroll_text_to(text, 1 / 70, stop_x, offscreen_canvas.width, offscreen_canvas, font, textColor, 1)
+                self.scroll_text_to(text, 1 / 30, stop_x, offscreen_canvas.width, offscreen_canvas, font, textColor, 1)
 
 
-                text = '10 min'
+                text = train['arr_t'] + ' min'
                 text_length = 7 * (len(text))
                 stop_x = int((text_length + 64) / 2)
 
@@ -65,7 +65,7 @@ class RunText(SampleBase):
     def scroll_text_to(self, text, delta_t, stop_location, start_location, offscreen_canvas, font, textColor, delay):
         # text = 'A'
 
-        RHS = 64#start_location
+        RHS = start_location
 
         while True:
             offscreen_canvas.Clear()
@@ -80,7 +80,6 @@ class RunText(SampleBase):
             # 28 comes from some weird value l in drawtext
             RHS -= 1
             if (RHS + l < stop_location):
-                print(RHS, RHS+l)
                 time.sleep(delay) # make this based on transition time
                 # print('BREAKING')
                 # offscreen_canvas.Clear()
