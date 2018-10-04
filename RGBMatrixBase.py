@@ -30,10 +30,10 @@ class RGBMatrixBase(object):
     def usleep(self, value):
         time.sleep(value / 1000000.0)
 
-    def run(self):
+    def run(self, context):
         print("Running")
 
-    def process(self):
+    def process(self, context):
         self.args = self.parser.parse_args()
 
         options = RGBMatrixOptions()
@@ -63,7 +63,7 @@ class RGBMatrixBase(object):
         try:
             # Start loop
             print("Press CTRL-C to stop sample")
-            self.run()
+            self.run(context)
         except KeyboardInterrupt:
             print("Exiting\n")
             sys.exit(0)

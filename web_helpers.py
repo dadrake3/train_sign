@@ -1,7 +1,9 @@
 import requests
+import json
 import pyowm
 from datetime import datetime
 import time
+from wifi import Cell
 
 
 
@@ -10,26 +12,43 @@ fmt = '%Y-%m-%dT%H:%M:%S'
 url = 'http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=cc01eeec160945bb92713eacb27b7548&mapid=40660&outputType=JSON'
 offset_y = 12
 owm = pyowm.OWM('a1dc33b1459c16525fcd48856fc424e3')  # You MUST provide a valid API key
+google_api_key = 'AIzaSyDLQ5jyuG_srSR4S4lNYnSbSs9zI6Mvtok'
 
 def get_weather():
-    import pyowm
+    cells = Cell.all('wlan0')
+    wifi_aps = []
 
-    # Search for current weather in London (Great Britain)
-    observation = owm.weather_at_place('London,GB')
-    w = observation.get_weather()
-    print(w)                      # <Weather - reference time=2013-12-18 09:20,
-                                  # status=Clouds>
+    url = 'https://www.googleapis.com/geolocation/v1/geolocate?key=' + google_api_key
 
-    # Weather details
-    w.get_wind()                  # {'speed': 4.6, 'deg': 330}
-    w.get_humidity()              # 87
-    w.get_temperature('celsius')  # {'temp_max': 10.5, 'temp': 9.7, 'temp_min': 9.0}
+    payload = {"considerIp": "true", 'wifiAccessPoints': []}
+    jsonPayload = json.dumps(payload)
+    headers = {'content-type': 'application/json'}
 
-    # Search current weather observations in the surroundings of
-    # lat=22.57W, lon=43.12S (Rio de Janeiro, BR)
-    observation_list = owm.weather_around_coords(-22.57, -43.12)
 
-    print(observation_list)
+
+    for cell in cells:
+        #signal -> signal strength
+        #quality -> signal to noise raito
+        w = {
+            'macAddress': cell.address,
+            'signalStrength': cell.signal,
+            'channel': cell.channel,
+            'signalToNoiseRatio': cell.quality
+        }
+
+        payload['wifiAccessPoints'].append(w)
+
+    r = requests.post(url,data=jsonPayload,headers = headers)
+    response = json.loads(r.text)
+
+    observation = owm.weather_around_coords(response['location']['lat'], response['location']['lng'], limit=1)
+    w = observation[0].get_weather()
+
+    c = w.get_status()
+    b = w.get_temperature('fahrenheit')['temp']  # {'temp_max': 10.5, 'temp': 9.7, 'temp_min': 9.0}
+
+    return str(int(b)) + '\N{DEGREE SIGN}', c
+
 
 def get_trains():
 
