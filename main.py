@@ -1,7 +1,7 @@
 #!/usr/local/lib/python3.5
 # Display a runtext with double-buffering.
 from LEDController import LEDController
-import lirc
+# import lirc
 from multiprocessing import Process, Pipe, Event
 import time
 
@@ -10,7 +10,7 @@ import time
 
 
 def main():
-    lirc.init("myprogram")
+    # lirc.init("myprogram")
 
     parent_pipe, child_pipe = Pipe()
     remote_event = Event()
@@ -27,10 +27,13 @@ def main():
     p.start()
 
     while 1:
-        c = lirc.nextcode()
+        # c = lirc.nextcode()
+
+
+        c = [input()]
         if len(c) > 0:
             cmd = c[0]
-
+            print(c[0], 'IR process')
 
             if cmd == 'up' or cmd == 'down' or cmd == 'left' or cmd == 'right' or cmd == 'vol_up'or cmd == 'vol_down':
                 print('setting p')
