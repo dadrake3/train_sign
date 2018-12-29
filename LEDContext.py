@@ -8,6 +8,15 @@ from noise import snoise3, snoise2
 import math
 import queue
 from datetime import *
+import pyaudio
+
+FORMAT = pyaudio.paInt16
+CHANNELS = 1
+RATE = 44100
+CHUNK = int(RATE / (1 / delta_t))# 2048 # RATE / number of updates per second
+RECORD_SECONDS = 20
+# use a Blackman window
+window = np.blackman(CHUNK)
 
 screen_height = 16
 screen_width = 64
@@ -204,32 +213,75 @@ class PerlinBackground(Background):
             self.__z_offset = np.random.randint(2 ** 8)
             self.__dim = dim
 
+            # audio equalizer shit
+            self.p = pyaudio.PyAudio()
+            # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True,
+                            # frames_per_buffer=CHUNK)
+
+            stream = pyaud.open(
+                format = pyaudio.paInt16,
+                channels = 1,
+                rate = 44100,
+                input_device_index = 2, # this needs to be tested
+                input = True,
+                frames_per_buffer=CHUNK)
+
     def __str__(self):
      return 'Perlin Background Object'
 
     def get_background(self, clk):
         z = clk * self.__background_speed + self.__z_offset
 
-        for y in range(self.screen_height):
-            for x in range(self.screen_width):
-                if self.__dim == 0:
-                    self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+        if self.__dim == 3:
+            data = self.stream.read(CHUNK, exception_on_overflow=False)
+            wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+            np_array_data = np.array(wave_data)
+            audio_data = np.abs(np_array_data * window)
+            audio_data = audio_data[::int(CHUNK / 64)]
+            max_ = max(audio_data)
 
-                elif self.__dim == 1:
-                    self.__bw[y][x] = int(snoise3(x / self.__freq, x / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+            norm2 = plt.Normalize(0, max_)
+            audio_data = 16 * norm2(audio_data)
 
-                elif self.__dim == 2:
-                    self.__bw[y][x] = int(snoise3(x / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+            img = Image.new('RGB', (self.screen_width, self.screen_height))
+            print(max_)
+            if max_ < 100:
+                return img
+            pixels = img.load()
+            for x in range(64):  # for every pixel:
+                for y in range(16):
+                    if 16 - y > audio_data[x]:
+                        pixels[x, y] = (0,0,0)
+                    else:
+                        c = int(snoise3((x + clk) / self.__freq, (x + clk) / self.__freq, z / self.__freq,
+                                                      self.__octaves) * 127.0 + 128.0)
+                        c = self.__gradients[self.__curr_gradient](norm(c))
+                        pixels[x, y] = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
 
-                elif self.__dim == 3:
-                    self.__bw[y][x] = int(snoise3((x + clk) / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+            return img
 
-                elif self.__dim == 4:
-                    self.__bw[y][x] = int(snoise3(x / self.__freq, (y + clk) / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+        else:
 
-        rgb = gradients[self.__curr_gradient](norm(self.__bw))
-        img = Image.fromarray(np.uint8(rgb * 255 * self.background_brightness)).convert('RGB')
-        return img
+            for y in range(self.screen_height):
+                for x in range(self.screen_width):
+                    if self.__dim == 0:
+                        self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+                    elif self.__dim == 1:
+                        self.__bw[y][x] = int(snoise3(x / self.__freq, x / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+                    elif self.__dim == 2:
+                        self.__bw[y][x] = int(snoise3(x / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+                    # elif self.__dim == 3:
+                    #     self.__bw[y][x] = int(snoise3((x + clk) / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+                    # elif self.__dim == 4:
+                    #     self.__bw[y][x] = int(snoise3(x / self.__freq, (y + clk) / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+            rgb = gradients[self.__curr_gradient](norm(self.__bw))
+            img = Image.fromarray(np.uint8(rgb * 255 * self.background_brightness)).convert('RGB')
+            return img
 
     def change_background(self, delta):
         if not self.static:
