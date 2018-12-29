@@ -7,12 +7,35 @@ from matplotlib import pyplot as plt
 from noise import snoise3, snoise2
 import math
 import queue
+from datetime import *
 
 screen_height = 16
 screen_width = 64
 delta_t = 0.1
 norm = plt.Normalize()
 clk = 0
+
+
+gradients = [plt.cm.gist_rainbow,
+            plt.cm.jet,
+            plt.cm.plasma,
+            plt.cm.inferno,
+            plt.cm.flag,
+            plt.cm.prism,
+            plt.cm.gist_ncar,
+            plt.cm.summer,
+            plt.cm.cool,
+            plt.cm.Pastel1,
+            plt.cm.rainbow,
+            plt.cm.Blues,
+            plt.cm.bone,
+            plt.cm.hot,
+            plt.cm.gist_earth,
+            plt.cm.Greys,
+            plt.cm.YlGnBu,
+            plt.cm.twilight_shifted]
+
+
 
 
 class LEDContext(object):
@@ -34,7 +57,7 @@ class LEDContext(object):
         self.screen_width = screen_width
         self.screen_height = screen_height
 
-        self.__brightness = 1
+        self.__brightness = 0.5
 
 
     def param_dispatch(self):
@@ -61,7 +84,9 @@ class LEDContext(object):
 
             elif cmd == 'vol_down':
                 self.background.change_speed(-1)
-            elif cmd == 'back':
+
+            elif cmd == 'restart':
+                print('here')
                 self.background.modifier()
 
 
@@ -150,17 +175,28 @@ class PerlinBackground(Background):
     def __init__(self, start_gradient=0, background_speed=2, octaves=4, freq=32.0, static=False, background_brightness=1.0, dim=2):
             super(PerlinBackground,self).__init__(static=static, background_brightness=background_brightness)
             self.__bw = np.zeros(shape=(16, 64)) # used for perlin gradients
-            self.__gradients = [plt.cm.gist_rainbow,
-                                    plt.cm.jet,
-                                    plt.cm.plasma,
-                                    plt.cm.inferno,
-                                    plt.cm.flag,
-                                    plt.cm.prism,
-                                    plt.cm.gist_ncar,
-                                    plt.cm.hot,
-                                    plt.cm.cool,
-                                    plt.cm.rainbow,
-                                    plt.cm.Blues]
+
+            # add every single gradient. itl be sick
+            # self.__gradients = [    plt.cm.gist_rainbow,
+            #                         plt.cm.jet,
+            #                         plt.cm.plasma,
+            #                         plt.cm.inferno,
+            #                         plt.cm.flag,
+            #                         plt.cm.prism,
+            #                         plt.cm.gist_ncar,
+            #                         plt.cm.summer,
+            #                         plt.cm.cool,
+            #                         plt.cm.Pastel1,
+            #                         plt.cm.rainbow,
+            #                         plt.cm.Blues,
+            #                         plt.cm.bone,
+            #                         plt.cm.hot,
+            #                         plt.cm.gist_earth,
+            #                         plt.cm.Greys,
+            #                         plt.cm.YlGnBu,
+            #                         plt.cm.twilight_shifted]
+
+
             self.__curr_gradient = start_gradient
             self.__background_speed = background_speed
             self.__octaves = octaves # have this changed by remote input
@@ -177,96 +213,270 @@ class PerlinBackground(Background):
         for y in range(self.screen_height):
             for x in range(self.screen_width):
                 if self.__dim == 0:
-                    self.__bw[y][x] = int(snoise2(y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+                    self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
                 elif self.__dim == 1:
-                    self.__bw[y][x] = int(snoise2(z / self.__freq, x / self.__freq, self.__octaves) * 127.0 + 128.0)
+                    self.__bw[y][x] = int(snoise3(x / self.__freq, x / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
                 elif self.__dim == 2:
                     self.__bw[y][x] = int(snoise3(x / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
-        rgb = self.__gradients[self.__curr_gradient](norm(self.__bw))
+                elif self.__dim == 3:
+                    self.__bw[y][x] = int(snoise3((x + clk) / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+                elif self.__dim == 4:
+                    self.__bw[y][x] = int(snoise3(x / self.__freq, (y + clk) / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+        rgb = gradients[self.__curr_gradient](norm(self.__bw))
         img = Image.fromarray(np.uint8(rgb * 255 * self.background_brightness)).convert('RGB')
         return img
 
     def change_background(self, delta):
         if not self.static:
-            self.__curr_gradient = max(min(self.__curr_gradient + delta, len(self.__gradients) - 1), 0)
+            self.__curr_gradient = (self.__curr_gradient + delta) % len(gradients)
+
+            # max(min(self.__curr_gradient + delta, len(gradients) - 1), 0)
 
     def change_speed(self, delta):
         if not self.static:
             self.__background_speed = max(min(self.__background_speed + delta, 10), 0)
 
     def modifier(self):
-        print(self.__dim)
-        self.__dim = (self.__dim + 1) % 3
-        print(self.__dim)
+        if not self.static:
+            self.__dim = (self.__dim + 1) % 3
+
 
 
 class FillBackground(Background):
-    def __init__(self, color_idx=0, static=False, background_brightness=1.0):
+    def __init__(self, color_idx=0.0, static=False, background_brightness=1.0, fade=False, color_strobe=False, strobe_speed=2, strobe=False):
             super(FillBackground, self).__init__(static=static,background_brightness=background_brightness)
-            self.__color_idx = color_idx
+            self.color_idx = 0
+            self.fade = fade
             self.background_color = 0
-            self.__fade = False
+            self.strobe = strobe
+            self.__curr_gradient = 1
+            self.__color_strobe = color_strobe
+            self.__strobe_speed = strobe_speed  # MIN VALUE IS 1
+            self.fade_speed = 0.02
+
             self.change_background(color_idx)
 
-    def __str__(self):
-     return 'Fill Background Object'
-
     def get_background(self, clk):
+        # level = norm(self.__color_idx * 255.0 * self.background_brightness)
+        # level = self.__color_idx
+        # print(self.__curr_gradient, 'grad')
+
+
+        if self.fade:
+            c = gradients[self.__curr_gradient](self.color_idx)
+
+            self.background_color = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
+            self.color_idx = (-1 * abs(((clk * self.fade_speed) % 2) - 1)) + 1
+
+            # print(self.color_idx)
+
+        elif self.strobe:
+            flag = clk % self.__strobe_speed
+            # flag = flag % 20
+            # print(flag)
+
+            if flag < 0.5 * self.__strobe_speed:
+                if self.__color_strobe:
+                    self.change_background(2) #go up 5 colors
+                return Image.new('RGB', (self.screen_width, self.screen_height))
+
+
+            else:
+                c = gradients[self.__curr_gradient](self.color_idx)
+
+                self.background_color = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
+                img = Image.new('RGB', (self.screen_width, self.screen_height))
+                img.paste(self.background_color, [0, 0, self.screen_width, self.screen_height])
+                return img
+
+        else:
+            c = plt.cm.rainbow(self.color_idx)
+
+            self.background_color = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
+
         img = Image.new('RGB', (self.screen_width, self.screen_height))
-        img.paste(self.background_color, [0,0, self.screen_width,self.screen_height])
+        img.paste(self.background_color, [0, 0, self.screen_width, self.screen_height])
         # print(img)
         return img
 
     def change_background(self, delta):
         if not self.static:
-            # self.__color_idx = max(min(self.__color_idx + delta, 0), 1)
-            self.__color_idx = (self.__color_idx + delta) % 1
-
-            a = np.array([1]) * delta
-            c = np.uint8((plt.cm.gist_ncar(a) * 255 * self.background_brightness))
-            self.background_color = c[0][1], c[0][1], c[0][2]
-
-    def modifier(self):
-        self.__fade = not self.__fade
-
-
-#.1 .2 .3 .4 .5
-#1  2  3  4  5
-#0  1  0  1  0
-
-class StrobeBackground(FillBackground):
-    def __init__(self, strobe_delay=5):
-        super(StrobeBackground, self).__init__()
-
-        self.__strobe_speed = strobe_delay #clk pulses per strobe
-        self.__color_strobe = False
-        super(StrobeBackground, self).change_background(0.5)
-
-    def __str__(self):
-     return 'Strobe Background Object'
-
-    # fix this
-    def get_background(self, clk):
-        img = Image.new('RGB', (self.screen_width, self.screen_height))
-
-        # print(math.floor(clk / self.__strobe_speed) % 2, clk)
-        if math.floor(clk / self.__strobe_speed) % 2:
-            img.paste(self.background_color, [0,0, self.screen_width,self.screen_height])
-            return img
-        else:
-            # img = img.paste((0,0,0), [0,0, self.screen_width,self.screen_height])
-            # print(img, 'here')
-            return img
+            if self.fade:
+                self.__curr_gradient = (self.__curr_gradient + 1) % len(gradients)
+                print(self.__curr_gradient)
+            else:
+                self.color_idx = abs(self.color_idx + (delta / 40)) % 1
 
     def change_speed(self, delta):
         if not self.static:
-            self.__strobe_speed = max(min(self.__strobe_speed + delta, 10), 1) #min 1 bc divide by zero error
+            if self.strobe:
+                self.__strobe_speed = max(min(self.__strobe_speed + delta, 10), 1) #min 1 bc
+            elif self.fade:
+                self.fade_speed = max(min(self.fade_speed + (delta / 100), 0.1), 0.001)
+                print(self.fade_speed)
+
 
     def modifier(self):
-        self.__color_strobe = not self.__color_strobe
+        if not self.static:
+            if self.strobe:
+                self.__color_strobe = not self.__color_strobe
+
+
+
+# class RandomBackground(Background):
+#     def __init__(self):
+#         Super(RandomBackground, self).__init__()
+#         pass
+
+
+class WeatherBackground(Background):
+    def __init__(self, static=False, background_brightness=1.0, condition=-1):
+        super(WeatherBackground, self).__init__(static=static, background_brightness=background_brightness)
+        self.__condition = condition
+        self.thunder = 0
+        self.rain = 0
+        self.snow = 0
+        self.background_color = (0,0,0)
+
+        # Thunderstorm, rain, drizzle
+
+        if condition == 0:
+            self.thunder = 1
+            self.intensity = 4
+            self.rain = 1
+            self.background_color = (0,0,20)
+        elif condition == 1:
+            self.intensity = 2
+            self.rain = 1
+            self.background = (10, 10, 40)
+        elif condition == 2:
+            self.intensity = 1
+            self.rain = 1
+            self.background_color = (60, 60, 80)
+        elif condition == 3:
+            self.intensity = 2
+            self.snow = 1
+            self.background_color = (150,150,150)
+
+
+        img = Image.new('RGB', (self.screen_width, self.screen_height))
+        img.paste(self.background_color, [0, 0, self.screen_width, self.screen_height])
+
+
+
+        if self.rain:
+            # self.r = 1
+            self.shift = 0
+            # self.image = img
+            for x in range(self.screen_width):
+                p = random.randint(0, 100)
+                if p < 2 * self.intensity:
+                    draw = ImageDraw.Draw(img)
+
+                    y1 = random.randint(0, 16)
+                    y2 = random.randint(y1, 16)
+                    if 4 < y2 - y1 or y2 - y1 <=1:
+                        continue
+
+                    draw.line((x, y1, x, y2), fill=(120, 120, 120))
+
+
+
+        elif self.snow:
+            for x in range(self.screen_width):
+                for y in range(self.screen_height):
+                    p = random.randint(0, 100)
+                    if p < 2 * self.intensity:
+                        img.putpixel((x,y), (255,255,255))
+
+        self.image = img
+
+
+
+
+
+    def get_background(self, clk):
+        # img_array = np.asarray(self.image)
+
+        # img_array = np.roll(img_array, self.shift, axis=0)
+        # self.image = Image.fromarray(np.uint8(img_array)).convert('RGB')
+        self.shift = 1
+        img = ''
+
+        p = random.randint(0, 100)
+        if p < 10 and self.thunder:
+            img = Image.new('RGB', (self.screen_width, self.screen_height))
+            img.paste((255, 255, 255), [0, 0, self.screen_width, self.screen_height])
+            return img
+        elif self.rain:
+            img_array = np.asarray(self.image)
+
+            img = Image.fromarray(np.uint8(img_array)).convert('RGB')
+
+            img_array = np.roll(img_array, int(self.shift * self.intensity), axis=0)
+            img_array[self.screen_height - 1] = self.background_color
+
+            # img_array = np.pad(img_array, ((0,15),(63,15)), mode='constant')
+            self.image = Image.fromarray(np.uint8(img_array)).convert('RGB')
+
+            for x in range(self.screen_width):
+                p = random.randint(0, 100)
+                if p < 1:
+                    y2 = random.randint(1, 3)
+
+                    draw = ImageDraw.Draw(self.image)
+                    draw.line((x, 0, x, y2), fill=(120, 120, 120))
+        elif self.snow:
+            img = Image.new('RGB', (self.screen_width, self.screen_height))
+            for x in range(self.screen_width):
+                for y in range(self.screen_height):
+                    p = random.randint(0, 100)
+                    if p < 2 * self.intensity:
+                        img.putpixel((x,y), (255,255,255))
+
+
+        return img
+
+
+# class StrobeBackground(FillBackground):
+#     def __init__(self, strobe_delay=5, color_strobe=False):
+#         super(StrobeBackground, self).__init__()
+#
+#         self.__strobe_speed = strobe_delay #clk pulses per strobe
+#         self.__color_strobe = color_strobe
+#         super(StrobeBackground, self).change_background(0.5)
+#
+#     def __str__(self):
+#      return 'Strobe Background Object'
+#
+#     # fix this
+#     def get_background(self, clk):
+#         if self.__color_strobe:
+#             super(StrobeBackground, self).change_background(1)
+#
+#
+#         img = Image.new('RGB', (self.screen_width, self.screen_height))
+#
+#         # print(math.floor(clk / self.__strobe_speed) % 2, clk)
+#         if math.floor(clk / self.__strobe_speed) % 2:
+#             img.paste(self.background_color, [0,0, self.screen_width,self.screen_height])
+#             return img
+#         else:
+#             # img = img.paste((0,0,0), [0,0, self.screen_width,self.screen_height])
+#             # print(img, 'here')
+#             return img
+#
+#     def change_speed(self, delta):
+#         if not self.static:
+#             self.__strobe_speed = max(min(self.__strobe_speed + delta, 10), 1) #min 1 bc divide by zero error
+#
+#     def modifier(self):
+#         self.__color_strobe = not self.__color_strobe
 
 
 class Foreground(object):
@@ -280,12 +490,11 @@ class Foreground(object):
     def get_foreground(self, img, clk):
         return img, False
 
-
 # one time use only. Cannot be reused unless reset is called
 class TextForeground(Foreground):
     def __init__(self, text, scroll_off=False, text_color=(255, 255, 255), hold_time=3, text_speed=1.5, flash_text=False):
         super(TextForeground, self).__init__()
-        self.__font = ImageFont.load('/usr/share/fonts/bitmap/cherry/cherry_b_13.pil')
+        self.__font = ImageFont.load('/usr/share/fonts/bitmap/proggy/ProggyCleanSZ.pil')
         # self.__font = ImageFont.load_default()
         self.__hold_time_temp = hold_time
         self.__reset = True

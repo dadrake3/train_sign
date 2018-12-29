@@ -2,16 +2,28 @@
 # Display a runtext with double-buffering.
 from LEDController import LEDController
 from LEDContext import LEDContext
-# import lirc
+import lirc
 from multiprocessing import Process, Pipe, Event
 import time
 
 
 # IR input process
 
+def get_input(sim=False):
+    if sim:
+        return [input()]
+    else:
+        return lirc.nextcode()
+    # print(c, 'here')
+
+
+    # continue
+
+
+
 
 def main():
-    # lirc.init("myprogram")
+    lirc.init("myprogram")
 
     parent_pipe, child_pipe = Pipe()
     remote_event = Event()
@@ -25,16 +37,20 @@ def main():
     p.daemon = False
     p.start()
 
+    # time.sleep(2)
+    print('starting IR')
+
+
+
     while 1:
-        # c = lirc.nextcode()
 
+        c = get_input(False)
 
-        c = [input()]
         if len(c) > 0:
             cmd = c[0]
             print(c[0], 'IR process')
-
-            if cmd == 'up' or cmd == 'down' or cmd == 'left' or cmd == 'right' or cmd == 'vol_up'or cmd == 'vol_down' or cmd == 'back':
+        #
+            if cmd == 'up' or cmd == 'down' or cmd == 'left' or cmd == 'right' or cmd == 'vol_up'or cmd == 'vol_down' or cmd == 'restart':
                 print('setting p')
                 context.param_event.set()
 
@@ -46,7 +62,9 @@ def main():
 
             # if cmd == 'restart':
             #     break
-            time.sleep(0.02)
+            # time.sleep(0.02)
+
+
 
     p.join()
 

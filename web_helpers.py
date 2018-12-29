@@ -57,7 +57,7 @@ def get_weather():
     b = w.get_temperature('fahrenheit')['temp']  # {'temp_max': 10.5, 'temp': 9.7, 'temp_min': 9.0}
 
 
-    ret = (str(int(b)) + '\N{DEGREE SIGN}', c)
+    ret = (str(int(b)), c)
     old_weather = ret
     return ret
 
