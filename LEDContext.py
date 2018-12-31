@@ -318,7 +318,7 @@ class PerlinBackground(Background):
             for y in range(self.screen_height):
                 for x in range(self.screen_width):
                     if 16 - y <= self.__audio_data[x]:
-                        img_array[x][y] *= 0
+                        img_array[y][x] *= 0
 
 
         img = Image.fromarray(img_array).convert('RGB')
