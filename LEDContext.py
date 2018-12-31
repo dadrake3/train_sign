@@ -95,7 +95,7 @@ class LEDContext(object):
             elif cmd == 'vol_down':
                 self.background.change_speed(-1)
 
-            elif cmd == 'restart':
+            elif cmd == 'back':
                 print('here')
                 self.background.modifier()
 

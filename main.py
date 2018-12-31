@@ -50,7 +50,7 @@ def main():
             cmd = c[0]
             print(c[0], 'IR process')
         #
-            if cmd == 'up' or cmd == 'down' or cmd == 'left' or cmd == 'right' or cmd == 'vol_up'or cmd == 'vol_down' or cmd == 'restart':
+            if cmd == 'up' or cmd == 'down' or cmd == 'left' or cmd == 'right' or cmd == 'vol_up'or cmd == 'vol_down' or cmd == 'back':
                 print('setting p')
                 context.param_event.set()
 
