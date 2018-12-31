@@ -315,8 +315,8 @@ class PerlinBackground(Background):
 
 class EqualizerBackground(PerlinBackground):
 
-    def __init__(self, start_gradient=0, octaves=4, freq=32.0, background_brightness=1.0):
-        super(EqualizerBackground,self).__init__(start_gradient=start_gradient, octaves=octaves, freq=freq, background_brightness=background_brightness)
+    def __init__(self, start_gradient=0, octaves=4, freq=32.0, background_brightness=1.0, background_speed=2):
+        super(EqualizerBackground,self).__init__(background_speed=background_speed, start_gradient=start_gradient, octaves=octaves, freq=freq, background_brightness=background_brightness)
 
 
         self.__pa = pyaudio.PyAudio()
