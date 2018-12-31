@@ -215,13 +215,16 @@ class PerlinBackground(Background):
             self.__dim = dim
             self.__audio_data = None
             self.__pa = pyaudio.PyAudio()
-            # self.__stream = self.__pa.open(
-            #     format = pyaudio.paInt16,
-            #     channels = 1,
-            #     rate = 44100,
-            #     input_device_index = 0, # this needs to be tested
-            #     input = True,
-            #     frames_per_buffer=CHUNK)
+
+            print('start')
+            self.__stream = self.__pa.open(
+                format = pyaudio.paInt16,
+                channels = 1,
+                rate = 44100,
+                input_device_index = 0, # this needs to be tested
+                input = True,
+                frames_per_buffer=CHUNK)
+            print('end')
 
 
     def __str__(self):
