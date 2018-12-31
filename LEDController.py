@@ -80,7 +80,6 @@ class LEDController(RGBMatrixBase):
 
         elif func == 'func_5':
             self.fade(context)
-
         else:
             self.nop(context)
 
@@ -197,11 +196,13 @@ class LEDController(RGBMatrixBase):
         context.task_queue.put([fg, bg])
 
     def perlin(self, context):
+
         fg = Foreground()
         bg = PerlinBackground()
         context.task_queue.put([fg, bg])
 
     def gradient(self, context):
+
         fg = Foreground()
         bg = GradientBackground()
         context.task_queue.put([fg, bg])
