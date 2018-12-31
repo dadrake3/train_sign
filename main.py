@@ -23,7 +23,7 @@ def get_input(sim=False):
 
 
 def main():
-    lirc.init("myprogram")
+    lirc.init("ledsign")
 
     parent_pipe, child_pipe = Pipe()
     remote_event = Event()
