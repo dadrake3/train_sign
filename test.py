@@ -95,9 +95,7 @@ driver = DriverAdaMatrix()
 led = Matrix(driver)
 
 anim = MatrixCalibrationTest(led)
-# anim.start()
-anim._set_runner()
-anim.layout.start()
+
 anim.start()
 
 
