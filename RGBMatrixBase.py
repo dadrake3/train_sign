@@ -27,33 +27,6 @@ class RGBMatrixBase(object):
         self.parser.add_argument("--led-row-addr-type", action="store", help="0 = default; 1=AB-addressed panels", default=0, type=int, choices=[0,1])
         self.parser.add_argument("--led-multiplexing", action="store", help="Multiplexing type: 0=direct; 1=strip; 2=checker; 3=spiral (Default: 0)", default=0, type=int, choices=[0,1,2,3])
 
-        self.args = self.parser.parse_args()
-
-        options = RGBMatrixOptions()
-
-        if self.args.led_gpio_mapping != None:
-          options.hardware_mapping = self.args.led_gpio_mapping
-        options.rows = self.args.led_rows
-        options.cols = self.args.led_cols
-        options.chain_length = self.args.led_chain
-        options.parallel = self.args.led_parallel
-        options.row_address_type = self.args.led_row_addr_type
-        options.multiplexing = self.args.led_multiplexing
-        options.pwm_bits = self.args.led_pwm_bits
-        options.brightness = self.args.led_brightness
-        options.pwm_lsb_nanoseconds = self.args.led_pwm_lsb_nanoseconds
-        options.led_rgb_sequence = self.args.led_rgb_sequence
-        if self.args.led_show_refresh:
-          options.show_refresh_rate = 1
-
-        if self.args.led_slowdown_gpio != None:
-            options.gpio_slowdown = self.args.led_slowdown_gpio
-        if self.args.led_no_hardware_pulse:
-          options.disable_hardware_pulsing = True
-
-        self.matrix = RGBMatrix(options = options)
-
-
     def usleep(self, value):
         time.sleep(value / 1000000.0)
 
