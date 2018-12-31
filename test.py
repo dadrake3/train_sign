@@ -49,10 +49,14 @@ led = LEDMatrix(driver, 16, 32, serpentine=False)
 # import bibliopixel.log as log
 # log.setLogLevel(log.DEBUG)
 
+#load matrix calibration test animation
+from bibliopixel.animation import MatrixCalibrationTest
+anim = MatrixCalibrationTest(led)
 
 try:
-    anim = ScrollText(led, "Hello World!", size=4)
+    #run the animation
     anim.run()
 except KeyboardInterrupt:
+    #Ctrl+C will exit the animation and turn the LEDs offs
     led.all_off()
     led.update()
