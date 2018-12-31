@@ -10,6 +10,7 @@ import queue
 from datetime import *
 import pyaudio
 import wave
+from scipy.ndimage import gaussian_filter1d
 
 screen_height = 16
 screen_width = 64
@@ -264,7 +265,7 @@ class PerlinBackground(Background):
             max_ = max(audio_data)
 
             norm2 = plt.Normalize(0, max_)
-            self.__audio_data = 16 * norm2(audio_data)
+            self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 6)
             
             # print('here')
 
