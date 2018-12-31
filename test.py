@@ -67,8 +67,8 @@ from bibliopixel.drivers.SPI.LPD8806 import *
 from bibliopixel.layout import Rotation
 
 #create driver for a 12x12 grid, use the size of your display
-# driver = LPD8806(12*12)
-# led = Matrix(driver)
+driver = LPD8806(12*12)
+led = Matrix(driver)
 
 anim = MatrixCalibrationTest(led)
 anim.run()
