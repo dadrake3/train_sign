@@ -67,6 +67,7 @@ class DriverAdaMatrix(DriverBase):
     #Push new data to strand
     def update(self, data):
         # self._matrix.SetBuffer(data)
+        print(data)
         self._matrix.SetImage(data, 0, 0)
 
     #Matrix supports between 2^1 and 2^11 levels of PWM
