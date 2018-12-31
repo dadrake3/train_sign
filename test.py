@@ -26,10 +26,10 @@ class DriverAdaMatrix(DriverBase):
     #Matrix supports between 2^1 and 2^11 levels of PWM
     #which translates to the total color bit-depth possible
     #A lower value will take up less CPU cycles
-    def SetPWMBits(self, bits):
-        if bits < 1 or bits > 11:
-            raise ValueError("PWM level must be between 1 and 11")
-        self._matrix.SetPWMBits(bits)
+    # def SetPWMBits(self, bits):
+    #     if bits < 1 or bits > 11:
+    #         raise ValueError("PWM level must be between 1 and 11")
+    #     self._matrix.SetPWMBits(bits)
 
 
 # #Usage is as follows:
@@ -39,7 +39,7 @@ from bibliopixel import *
 import bibliopixel.colors as colors
 
 driver = DriverAdaMatrix(rows=16, chain=1)
-driver.SetPWMBits(6) #decrease bit-depth for better performance
+# driver.SetPWMBits(6) #decrease bit-depth for better performance
 #MUST use serpentine=False because rgbmatrix handles the data that way
 led = LEDMatrix(driver, 16, 32, serpentine=False)
 
