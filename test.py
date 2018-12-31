@@ -44,7 +44,7 @@ driver = DriverAdaMatrix(rows=16, chain=1)
 led = LEDMatrix(driver, 16, 32, serpentine=False)
 
 #Must have code downloaded from GitHub for matrix_animations
-from matrix_animations import *
+# from matrix_animations import *
 import bibliopixel.log as log
 log.setLogLevel(log.DEBUG)
 
