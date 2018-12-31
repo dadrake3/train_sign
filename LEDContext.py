@@ -21,7 +21,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 CHUNK = int(RATE / (1 / delta_t))# 2048 # RATE / number of updates per second
-CHUNK = 64
+# CHUNK = 64
 RECORD_SECONDS = 20
 
 
@@ -256,29 +256,29 @@ class PerlinBackground(Background):
         # if self.__dim == 3:
         if 1:
             data = STREAM.read(CHUNK, exception_on_overflow=False)
-            wave_data = wave.struct.unpack("%dh" % CHUNK, data)
-            np_array_data = np.array(wave_data)
-            audio_data = np.abs(np_array_data * window)
-            audio_data = audio_data[::int(CHUNK / 64)]
-            max_ = max(audio_data)
+            # wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+            # np_array_data = np.array(wave_data)
+            # audio_data = np.abs(np_array_data * window)
+            # audio_data = audio_data[::int(CHUNK / 64)]
+            # max_ = max(audio_data)
 
-            norm2 = plt.Normalize(0, max_)
-            audio_data = 16 * norm2(audio_data)
+            # norm2 = plt.Normalize(0, max_)
+            # audio_data = 16 * norm2(audio_data)
 
             img = Image.new('RGB', (self.screen_width, self.screen_height))
-            # print(max_)
-            # if max_ < 100:
-            # return img
-            pixels = img.load()
-            for x in range(64):  # for every pixel:
-               for y in range(16):
-                   if 16 - y > audio_data[x]:
-                       pixels[x, y] = (0,0,0)
-                   else:
-                       c = int(snoise3((x + clk) / self.__freq, (x + clk) / self.__freq, z / self.__freq,
-                                                     self.__octaves) * 127.0 + 128.0)
-                       c = gradients[self.__curr_gradient](norm(c))
-                       pixels[x, y] = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
+            # # print(max_)
+            # # if max_ < 100:
+            # # return img
+            # pixels = img.load()
+            # for x in range(64):  # for every pixel:
+            #    for y in range(16):
+            #        if 16 - y > audio_data[x]:
+            #            pixels[x, y] = (0,0,0)
+            #        else:
+            #            c = int(snoise3((x + clk) / self.__freq, (x + clk) / self.__freq, z / self.__freq,
+            #                                          self.__octaves) * 127.0 + 128.0)
+            #            c = gradients[self.__curr_gradient](norm(c))
+            #            pixels[x, y] = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
 
             return img
 
