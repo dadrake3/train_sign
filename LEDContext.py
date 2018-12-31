@@ -361,9 +361,12 @@ class EqualizerBackground(PerlinBackground):
 
         norm2 = plt.Normalize(0, max_)
        # self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
-        if self.__smooth:
-            audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
+       
+
         audio_data = 16 * norm2(audio_data)
+
+         if self.__smooth:
+            audio_data = gaussian_filter1d(audio_data, 1)
 
 
        
