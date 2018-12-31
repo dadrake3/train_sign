@@ -88,6 +88,9 @@ from bibliopixel.layout import *
 from bibliopixel.animation import MatrixCalibrationTest
 from bibliopixel.drivers.SPI.LPD8806 import *
 from bibliopixel.layout import Rotation
+from .. util import deprecated, log
+
+print(deprecated.allowed())
 
 #create driver for a 12x12 grid, use the size of your display
 driver = DriverAdaMatrix()
