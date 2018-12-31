@@ -9,6 +9,7 @@ import math
 import queue
 from datetime import *
 import pyaudio
+import wave
 
 screen_height = 16
 screen_width = 64
@@ -67,6 +68,19 @@ class LEDContext(object):
         self.screen_height = screen_height
 
         self.__brightness = 0.5
+
+        self.p = pyaudio.PyAudio()
+            # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
+    
+        print('opening stream')
+        self.stream = self.p.open(
+            format = pyaudio.paInt16,
+            channels = 1,
+            rate = 44100,
+            input_device_index = 0, # this needs to be tested
+            input = True,
+            frames_per_buffer=CHUNK)
+        print('stream opened')
 
 
     def param_dispatch(self):
@@ -214,18 +228,18 @@ class PerlinBackground(Background):
             self.__dim = dim
 
             # audio equalizer shit
-            self.p = pyaudio.PyAudio()
-            # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
+            # self.p = pyaudio.PyAudio()
+            # # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
 	
-            print('opening stream')
-            self.stream = self.p.open(
-                format = pyaudio.paInt16,
-                channels = 1,
-                rate = 44100,
-                input_device_index = 0, # this needs to be tested
-                input = True,
-                frames_per_buffer=CHUNK)
-            print('stream opened')
+            # print('opening stream')
+            # self.stream = self.p.open(
+            #     format = pyaudio.paInt16,
+            #     channels = 1,
+            #     rate = 44100,
+            #     input_device_index = 0, # this needs to be tested
+            #     input = True,
+            #     frames_per_buffer=CHUNK)
+            # print('stream opened')
 
 
     def __str__(self):
