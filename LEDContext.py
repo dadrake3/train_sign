@@ -201,30 +201,9 @@ class Background(object):
 
 class PerlinBackground(Background):
 
-    def __init__(self, start_gradient=0, background_speed=2, octaves=4, freq=32.0, static=False, background_brightness=1.0, dim=5):
+    def __init__(self, start_gradient=0, background_speed=2, octaves=4, freq=32.0, static=False, background_brightness=1.0, dim=0):
             super(PerlinBackground,self).__init__(static=static, background_brightness=background_brightness)
             self.__bw = np.zeros(shape=(16, 64)) # used for perlin gradients
-
-            # add every single gradient. itl be sick
-            # self.__gradients = [    plt.cm.gist_rainbow,
-            #                         plt.cm.jet,
-            #                         plt.cm.plasma,
-            #                         plt.cm.inferno,
-            #                         plt.cm.flag,
-            #                         plt.cm.prism,
-            #                         plt.cm.gist_ncar,
-            #                         plt.cm.summer,
-            #                         plt.cm.cool,
-            #                         plt.cm.Pastel1,
-            #                         plt.cm.rainbow,
-            #                         plt.cm.Blues,
-            #                         plt.cm.bone,
-            #                         plt.cm.hot,
-            #                         plt.cm.gist_earth,
-            #                         plt.cm.Greys,
-            #                         plt.cm.YlGnBu,
-            #                         plt.cm.twilight_shifted]
-
 
             self.__curr_gradient = start_gradient
             self.__background_speed = background_speed
@@ -233,20 +212,6 @@ class PerlinBackground(Background):
             self.__z_offset = np.random.randint(2 ** 8)
             self.__dim = dim
             self.__audio_data = None
-
-            # audio equalizer shit
-            # self.p = pyaudio.PyAudio()
-            # # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
-	
-            # print('opening stream')
-            # self.stream = self.p.open(
-            #     format = pyaudio.paInt16,
-            #     channels = 1,
-            #     rate = 44100,
-            #     input_device_index = 0, # this needs to be tested
-            #     input = True,
-            #     frames_per_buffer=CHUNK)
-            # print('stream opened')
 
 
     def __str__(self):
@@ -265,7 +230,8 @@ class PerlinBackground(Background):
             max_ = max(audio_data)
 
             norm2 = plt.Normalize(0, max_)
-            self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 6)
+            # self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
+            self.__audio_data = 16 * norm2(audio_data)
             
             # print('here')
 
@@ -340,7 +306,7 @@ class PerlinBackground(Background):
 
     def modifier(self):
         if not self.static:
-            self.__dim = (self.__dim) % 6
+            self.__dim = (self.__dim + 1) % 6
 
 
 
