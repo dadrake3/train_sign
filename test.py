@@ -45,8 +45,8 @@ led = LEDMatrix(driver, 16, 32, serpentine=False)
 
 #Must have code downloaded from GitHub for matrix_animations
 # from matrix_animations import *
-import bibliopixel.log as log
-log.setLogLevel(log.DEBUG)
+# import bibliopixel.log as log
+# log.setLogLevel(log.DEBUG)
 
 
 try:
