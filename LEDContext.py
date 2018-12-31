@@ -307,7 +307,7 @@ class PerlinBackground(Background):
                 elif self.__dim == 5:
                     if 16 - y > self.__audio_data[x]:
                        self.__bw[y][x] = (0,0,0)
-                   else:
+                    else:
                        self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
 
