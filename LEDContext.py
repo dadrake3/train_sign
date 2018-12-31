@@ -21,7 +21,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 CHUNK = int(RATE / (1 / delta_t))# 2048 # RATE / number of updates per second
-CHUNK = 1024
+CHUNK = 2
 RECORD_SECONDS = 20
 
 
@@ -266,7 +266,7 @@ class PerlinBackground(Background):
             audio_data = 16 * norm2(audio_data)
 
             img = Image.new('RGB', (self.screen_width, self.screen_height))
-            print(max_)
+            # print(max_)
             # if max_ < 100:
             # return img
             pixels = img.load()
