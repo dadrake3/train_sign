@@ -267,8 +267,8 @@ class PerlinBackground(Background):
 
             img = Image.new('RGB', (self.screen_width, self.screen_height))
             print(max_)
-            if max_ < 100:
-               return img
+            # if max_ < 100:
+            # return img
             pixels = img.load()
             for x in range(64):  # for every pixel:
                for y in range(16):
@@ -277,7 +277,7 @@ class PerlinBackground(Background):
                    else:
                        c = int(snoise3((x + clk) / self.__freq, (x + clk) / self.__freq, z / self.__freq,
                                                      self.__octaves) * 127.0 + 128.0)
-                       c = self.__gradients[self.__curr_gradient](norm(c))
+                       c = gradients[self.__curr_gradient](norm(c))
                        pixels[x, y] = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
 
             return img
