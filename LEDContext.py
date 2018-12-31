@@ -256,8 +256,8 @@ class PerlinBackground(Background):
         # if self.__dim == 3:
         if 1:
             data = STREAM.read(CHUNK, exception_on_overflow=False)
-            # wave_data = wave.struct.unpack("%dh" % CHUNK, data)
-            # np_array_data = np.array(wave_data)
+            wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+            np_array_data = np.array(wave_data)
             # audio_data = np.abs(np_array_data * window)
             # audio_data = audio_data[::int(CHUNK / 64)]
             # max_ = max(audio_data)
