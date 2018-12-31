@@ -214,7 +214,7 @@ class PerlinBackground(Background):
             self.__dim = dim
 
             # audio equalizer shit
-	    self.p = pyaudio.PyAudio()
+            self.p = pyaudio.PyAudio()
 	    # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True,
 	                            # frames_per_buffer=CHUNK)
 	
