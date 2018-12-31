@@ -395,8 +395,8 @@ class EqualizerBackground(PerlinBackground):
         pass
 
     def modifier(self):
-        self.__smooth != self.__smooth
-        print('mod')
+        self.__smooth = !self.__smooth
+        # print('mod')
 
     def __del__(self):
         # self.__stream.stop_stream()
