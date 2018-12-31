@@ -96,7 +96,7 @@ led = Matrix(driver)
 
 anim = MatrixCalibrationTest(led)
 
-anim.start()
+anim.run()
 
 
 
