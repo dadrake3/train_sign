@@ -215,16 +215,15 @@ class PerlinBackground(Background):
 
             # audio equalizer shit
             self.p = pyaudio.PyAudio()
-	    # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True,
-	                            # frames_per_buffer=CHUNK)
+            # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
 	
-	    #self.stream = self.p.open(
-	    #    format = pyaudio.paInt16,
-	    #    channels = 1,
-	    #    rate = 44100,
-	    #    input_device_index = 2, # this needs to be tested
-	    #    input = True,
-	    #    frames_per_buffer=CHUNK)
+            self.stream = self.p.open(
+                format = pyaudio.paInt16,
+                channels = 1,
+                rate = 44100,
+                input_device_index = 2, # this needs to be tested
+                input = True,
+                frames_per_buffer=CHUNK)
 
 
     def __str__(self):
