@@ -320,7 +320,16 @@ class EqualizerBackground(PerlinBackground):
 
 
         self.__pa = pyaudio.PyAudio()
-        print(self.__background_speed)
+        
+        self.__bw = np.zeros(shape=(16, 64)) # used for perlin gradients
+
+        self.__curr_gradient = start_gradient
+        self.__background_speed = background_speed
+        self.__octaves = octaves # have this changed by remote input
+        self.__freq = freq * self.__octaves # have this changed by remote input
+        self.__z_offset = np.random.randint(2 ** 8)
+        self.__dim = dim
+        self.__audio_data = None
 
         # print('start')
         # self.__stream = self.__pa.open(
