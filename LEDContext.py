@@ -214,17 +214,23 @@ class PerlinBackground(Background):
             self.__z_offset = np.random.randint(2 ** 8)
             self.__dim = dim
             self.__audio_data = None
-            self.__pa = pyaudio.PyAudio()
+            # self.__pa = pyaudio.PyAudio()
 
-            print('start')
-            self.__stream = self.__pa.open(
-                format = pyaudio.paInt16,
-                channels = 1,
-                rate = 44100,
-                input_device_index = 0, # this needs to be tested
-                input = True,
-                frames_per_buffer=CHUNK)
-            print('end')
+            # print('start')
+            # self.__stream = self.__pa.open(
+            #     format = pyaudio.paInt16,
+            #     channels = 1,
+            #     rate = 44100,
+            #     input_device_index = 0, # this needs to be tested
+            #     input = True,
+            #     frames_per_buffer=CHUNK)
+            # print('end')
+
+
+
+
+
+
 
 
     def __str__(self):
@@ -233,39 +239,21 @@ class PerlinBackground(Background):
     def get_background(self, clk):
         z = clk * self.__background_speed + self.__z_offset
 
-        if self.__dim == 5:
+        # if self.__dim == 5:
         # if 1:
-            data = STREAM.read(CHUNK, exception_on_overflow=False)
-            wave_data = wave.struct.unpack("%dh" % CHUNK, data)
-            np_array_data = np.array(wave_data)
-            audio_data = np.abs(np_array_data * window)
-            audio_data = audio_data[::int(CHUNK / 64)]
-            max_ = max(audio_data)
-            #if max_ < 20.0:
-            #    audio_data *= 0
+           #  data = STREAM.read(CHUNK, exception_on_overflow=False)
+           #  wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+           #  np_array_data = np.array(wave_data)
+           #  audio_data = np.abs(np_array_data * window)
+           #  audio_data = audio_data[::int(CHUNK / 64)]
+           #  max_ = max(audio_data)
+           #  #if max_ < 20.0:
+           #  #    audio_data *= 0
 
-            norm2 = plt.Normalize(0, max_)
-           # self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
-            self.__audio_data = 16 * norm2(audio_data)
-            
-            # print('here')
-
-            # img = Image.new('RGB', (self.screen_width, self.screen_height))
-            # # # print(max_)
-            # # # if max_ < 100:
-            # # # return img
-            # pixels = img.load()
-            # for x in range(64):  # for every pixel:
-            #    for y in range(16):
-            #        if 16 - y > audio_data[x]:
-            #            pixels[x, y] = (0,0,0)
-            #        else:
-            #            c = int(snoise3((x + clk) / self.__freq, (x + clk) / self.__freq, z / self.__freq,
-            #                                          self.__octaves) * 127.0 + 128.0)
-            #            c = gradients[self.__curr_gradient](norm(c))
-            #            pixels[x, y] = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
-
-            # return img
+           #  norm2 = plt.Normalize(0, max_)
+           # # self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
+           #  self.__audio_data = 16 * norm2(audio_data)
+        
 
         # else:
 
@@ -286,21 +274,21 @@ class PerlinBackground(Background):
                 elif self.__dim == 4:
                     self.__bw[y][x] = int(snoise3(x / self.__freq, (y + clk) / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
-                elif self.__dim == 5:
-                    if 16 - y > self.__audio_data[x]:
-                       self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 0)
-                    else:
-                       self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+                # elif self.__dim == 5:
+                #     if 16 - y > self.__audio_data[x]:
+                #        self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 0)
+                #     else:
+                #        self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
 
 
         rgb = gradients[self.__curr_gradient](norm(self.__bw))
         img_array = np.uint8(rgb * 255 * self.background_brightness)
-        if self.__dim == 5:
-            for y in range(self.screen_height):
-                for x in range(self.screen_width):
-                    if 16 - y > self.__audio_data[x]:
-                        img_array[y][x] *= 0
+        # if self.__dim == 5:
+        #     for y in range(self.screen_height):
+        #         for x in range(self.screen_width):
+        #             if 16 - y > self.__audio_data[x]:
+        #                 img_array[y][x] *= 0
 
 
         img = Image.fromarray(img_array).convert('RGB')
@@ -323,12 +311,78 @@ class PerlinBackground(Background):
         if not self.static:
             self.__dim = (self.__dim + 1) % 5
 
+
+
+class EqualizerBackground(PerlinBackground):
+
+    def __init__(self, start_gradient=0, octaves=4, freq=32.0, background_brightness=1.0):
+        super(EqualizerBackground,self).__init__(start_gradient=start_gradient, octaves=octaves, freq=freq, background_brightness=background_brightness)
+
+
+        self.__pa = pyaudio.PyAudio()
+
+        # print('start')
+        # self.__stream = self.__pa.open(
+        #     format = pyaudio.paInt16,
+        #     channels = 1,
+        #     rate = 44100,
+        #     input_device_index = 0, # this needs to be tested
+        #     input = True,
+        #     frames_per_buffer=CHUNK)
+        # print('end')
+
+    def __str__(self):
+     return 'Equalizer Background Object'
+
+    def get_background(self, clk):
+        z = clk * self.__background_speed + self.__z_offset
+        img = Image.fromarray(img_array).convert('RGB')
+
+        data = STREAM.read(CHUNK, exception_on_overflow=False)
+        wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+        np_array_data = np.array(wave_data)
+        audio_data = np.abs(np_array_data * window)
+        audio_data = audio_data[::int(CHUNK / 64)]
+        max_ = max(audio_data)
+
+        # if max_ < 20.0:
+           # return img
+
+        norm2 = plt.Normalize(0, max_)
+       # self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
+        audio_data = 16 * norm2(audio_data)
+       
+
+        for y in range(self.screen_height):
+            for x in range(self.screen_width):
+                if 16 - y > audio_data[x]:
+                   self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 0)
+                else:
+                   self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+        rgb = gradients[self.__curr_gradient](norm(self.__bw))
+        img_array = np.uint8(rgb * 255 * self.background_brightness)
+
+        for y in range(self.screen_height):
+            for x in range(self.screen_width):
+                if 16 - y > audio_data[x]:
+                    img_array[y][x] *= 0
+        return img
+
+    
+    def change_speed(self, delta):
+        pass
+
+    def modifier(self):
+        pass
+
     def __del__(self):
         # self.__stream.stop_stream()
         # self.__stream.close()
 
         # self.__pa.terminate()
         pass
+
 
 
 class FillBackground(Background):
