@@ -31,18 +31,20 @@ RECORD_SECONDS = 20
 # use a Blackman window
 window = np.blackman(CHUNK)
 
-p = pyaudio.PyAudio()
-            # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
+# p = pyaudio.PyAudio()
+#             # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
     
-print('opening stream')
-STREAM = p.open(
-    format = pyaudio.paInt16,
-    channels = 1,
-    rate = 44100,
-    input_device_index = 0, # this needs to be tested
-    input = True,
-    frames_per_buffer=CHUNK)
-print('stream opened')
+# print('opening stream')
+# STREAM = p.open(
+#     format = pyaudio.paInt16,
+#     channels = 1,
+#     rate = 44100,
+#     input_device_index = 0, # this needs to be tested
+#     input = True,
+#     frames_per_buffer=CHUNK)
+# print('stream opened')
+
+
 
 gradients = [plt.cm.gist_rainbow,
             plt.cm.jet,
@@ -212,6 +214,14 @@ class PerlinBackground(Background):
             self.__z_offset = np.random.randint(2 ** 8)
             self.__dim = dim
             self.__audio_data = None
+            self.__pa = pyaudio.PyAudio()
+            self.__stream = self.__pa.open(
+                format = pyaudio.paInt16,
+                channels = 1,
+                rate = 44100,
+                input_device_index = 0, # this needs to be tested
+                input = True,
+                frames_per_buffer=CHUNK)
 
 
     def __str__(self):
@@ -222,7 +232,7 @@ class PerlinBackground(Background):
 
         if self.__dim == 5:
         # if 1:
-            data = STREAM.read(CHUNK, exception_on_overflow=False)
+            data = self.__stream.read(CHUNK, exception_on_overflow=False)
             wave_data = wave.struct.unpack("%dh" % CHUNK, data)
             np_array_data = np.array(wave_data)
             audio_data = np.abs(np_array_data * window)
@@ -309,6 +319,12 @@ class PerlinBackground(Background):
     def modifier(self):
         if not self.static:
             self.__dim = (self.__dim + 1) % 5
+
+    def __del__(self):
+        self.__stream.stop_stream()
+        self.__stream.close()
+
+        self.__pa.terminate()
 
 
 
