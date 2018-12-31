@@ -313,7 +313,18 @@ class PerlinBackground(Background):
 
 
         rgb = gradients[self.__curr_gradient](norm(self.__bw))
-        img = Image.fromarray(np.uint8(rgb * 255 * self.background_brightness)).convert('RGB')
+        img_array = np.uint8(rgb * 255 * self.background_brightness)
+        if self.__dim == 5:
+            for y in range(self.screen_height):
+                for x in range(self.screen_width):
+                    if 16 - y <= self.__audio_data[x]:
+                        img_array[x][y] *= 0
+
+
+        img = Image.fromarray(img_array).convert('RGB')
+
+        
+
         return img
 
     def change_background(self, delta):
