@@ -143,6 +143,16 @@ class LEDContext(object):
 
                 clk = (clk + 1) % (2 ** 32)
 
+
+                data = self.stream.read(CHUNK, exception_on_overflow=False)
+                wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+                np_array_data = np.array(wave_data)
+                audio_data = np.abs(np_array_data * window)
+                audio_data = audio_data[::int(CHUNK / 64)]
+                max_ = max(audio_data)
+
+                print(max_)
+
     def update(self, clk):
         img = self.background.get_background(clk)
         # print(img)
