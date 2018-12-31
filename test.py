@@ -42,7 +42,7 @@ from bibliopixel.animation import *
 driver = DriverAdaMatrix(rows=16, chain=1)
 # driver.SetPWMBits(6) #decrease bit-depth for better performance
 #MUST use serpentine=False because rgbmatrix handles the data that way
-led = LEDMatrix(driver, 16, 32, serpentine=False)
+led = Matrix(driver, 16, 32, serpentine=False)
 
 #Must have code downloaded from GitHub for matrix_animations
 # from matrix_animations import *
