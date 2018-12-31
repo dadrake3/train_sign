@@ -317,7 +317,7 @@ class PerlinBackground(Background):
         if self.__dim == 5:
             for y in range(self.screen_height):
                 for x in range(self.screen_width):
-                    if 16 - y <= self.__audio_data[x]:
+                    if 16 - y > self.__audio_data[x]:
                         img_array[y][x] *= 0
 
 
