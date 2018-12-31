@@ -57,13 +57,11 @@ def main():
             else:
                 context.remote_event.set()
 
-
             parent_pipe.send(cmd)
 
             # if cmd == 'restart':
             #     break
             # time.sleep(0.02)
-
 
 
     p.join()
