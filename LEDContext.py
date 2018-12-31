@@ -200,7 +200,7 @@ class Background(object):
 
 class PerlinBackground(Background):
 
-    def __init__(self, start_gradient=0, background_speed=2, octaves=4, freq=32.0, static=False, background_brightness=1.0, dim=2):
+    def __init__(self, start_gradient=0, background_speed=2, octaves=4, freq=32.0, static=False, background_brightness=1.0, dim=5):
             super(PerlinBackground,self).__init__(static=static, background_brightness=background_brightness)
             self.__bw = np.zeros(shape=(16, 64)) # used for perlin gradients
 
@@ -231,6 +231,7 @@ class PerlinBackground(Background):
             self.__freq = freq * self.__octaves # have this changed by remote input
             self.__z_offset = np.random.randint(2 ** 8)
             self.__dim = dim
+            self.__audio_data = None
 
             # audio equalizer shit
             # self.p = pyaudio.PyAudio()
@@ -253,23 +254,24 @@ class PerlinBackground(Background):
     def get_background(self, clk):
         z = clk * self.__background_speed + self.__z_offset
 
-        # if self.__dim == 3:
-        if 1:
+        if self.__dim == 5:
+        # if 1:
             data = STREAM.read(CHUNK, exception_on_overflow=False)
             wave_data = wave.struct.unpack("%dh" % CHUNK, data)
             np_array_data = np.array(wave_data)
-            # audio_data = np.abs(np_array_data * window)
-            # audio_data = audio_data[::int(CHUNK / 64)]
-            # max_ = max(audio_data)
+            audio_data = np.abs(np_array_data * window)
+            audio_data = audio_data[::int(CHUNK / 64)]
+            max_ = max(audio_data)
 
-            # norm2 = plt.Normalize(0, max_)
-            # audio_data = 16 * norm2(audio_data)
-            print('here')
+            norm2 = plt.Normalize(0, max_)
+            self.__audio_data = 16 * norm2(audio_data)
+            
+            # print('here')
 
-            img = Image.new('RGB', (self.screen_width, self.screen_height))
-            # # print(max_)
-            # # if max_ < 100:
-            # # return img
+            # img = Image.new('RGB', (self.screen_width, self.screen_height))
+            # # # print(max_)
+            # # # if max_ < 100:
+            # # # return img
             # pixels = img.load()
             # for x in range(64):  # for every pixel:
             #    for y in range(16):
@@ -281,30 +283,38 @@ class PerlinBackground(Background):
             #            c = gradients[self.__curr_gradient](norm(c))
             #            pixels[x, y] = int(c[0] * 255), int(c[1] * 255), int(c[2] * 255)
 
-            return img
+            # return img
 
-        else:
+        # else:
 
-            for y in range(self.screen_height):
-                for x in range(self.screen_width):
-                    if self.__dim == 0:
-                        self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+        for y in range(self.screen_height):
+            for x in range(self.screen_width):
+                if self.__dim == 0:
+                    self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
-                    elif self.__dim == 1:
-                        self.__bw[y][x] = int(snoise3(x / self.__freq, x / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+                elif self.__dim == 1:
+                    self.__bw[y][x] = int(snoise3(x / self.__freq, x / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
-                    elif self.__dim == 2:
-                        self.__bw[y][x] = int(snoise3(x / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+                elif self.__dim == 2:
+                    self.__bw[y][x] = int(snoise3(x / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
-                    elif self.__dim == 3:
-                        self.__bw[y][x] = int(snoise3((x + clk) / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+                elif self.__dim == 3:
+                    self.__bw[y][x] = int(snoise3((x + clk) / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
-                    elif self.__dim == 4:
-                        self.__bw[y][x] = int(snoise3(x / self.__freq, (y + clk) / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+                elif self.__dim == 4:
+                    self.__bw[y][x] = int(snoise3(x / self.__freq, (y + clk) / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
 
-            rgb = gradients[self.__curr_gradient](norm(self.__bw))
-            img = Image.fromarray(np.uint8(rgb * 255 * self.background_brightness)).convert('RGB')
-            return img
+                elif self.__dim == 5:
+                    if 16 - y > self.__audio_data[x]:
+                       self.__bw[y][x] = (0,0,0)
+                   else:
+                       self.__bw[y][x] = int(snoise3(y / self.__freq, y / self.__freq, z / self.__freq, self.__octaves) * 127.0 + 128.0)
+
+
+
+        rgb = gradients[self.__curr_gradient](norm(self.__bw))
+        img = Image.fromarray(np.uint8(rgb * 255 * self.background_brightness)).convert('RGB')
+        return img
 
     def change_background(self, delta):
         if not self.static:
@@ -318,7 +328,7 @@ class PerlinBackground(Background):
 
     def modifier(self):
         if not self.static:
-            self.__dim = (self.__dim + 1) % 3
+            self.__dim = (self.__dim) % 6
 
 
 
