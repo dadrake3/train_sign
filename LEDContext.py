@@ -330,6 +330,8 @@ class EqualizerBackground(PerlinBackground):
         self.__z_offset = np.random.randint(2 ** 8)
         self.__audio_data = None
 
+        self.__smooth = False
+
         # print('start')
         # self.__stream = self.__pa.open(
         #     format = pyaudio.paInt16,
@@ -359,7 +361,11 @@ class EqualizerBackground(PerlinBackground):
 
         norm2 = plt.Normalize(0, max_)
        # self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
+        if self.__smooth:
+            audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
         audio_data = 16 * norm2(audio_data)
+
+
        
 
         for y in range(self.screen_height):
@@ -378,7 +384,7 @@ class EqualizerBackground(PerlinBackground):
                     img_array[y][x] *= 0
 
         img = Image.fromarray(img_array).convert('RGB')
-        
+
         return img
 
     
@@ -386,6 +392,7 @@ class EqualizerBackground(PerlinBackground):
         pass
 
     def modifier(self):
+        self.__smooth != self.__smooth
         pass
 
     def __del__(self):
