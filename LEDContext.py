@@ -354,6 +354,9 @@ class EqualizerBackground(PerlinBackground):
         np_array_data = np.array(wave_data)
         audio_data = np.abs(np_array_data * window)
         audio_data = audio_data[::int(CHUNK / 64)]
+        if self.__smooth:
+            audio_data = gaussian_filter1d(audio_data, 1)
+
         max_ = max(audio_data)
 
         # if max_ < 20.0:
@@ -365,8 +368,7 @@ class EqualizerBackground(PerlinBackground):
 
         audio_data = 16 * norm2(audio_data)
 
-        if self.__smooth:
-            audio_data = gaussian_filter1d(audio_data, 1)
+        
 
 
        
