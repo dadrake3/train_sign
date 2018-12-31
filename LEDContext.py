@@ -8,6 +8,7 @@ from noise import snoise3, snoise2
 import math
 import queue
 from datetime import *
+import pyaudio
 
 screen_height = 16
 screen_width = 64
@@ -15,6 +16,14 @@ delta_t = 0.1
 norm = plt.Normalize()
 clk = 0
 
+FORMAT = pyaudio.paInt16
+CHANNELS = 1
+RATE = 44100
+CHUNK = int(RATE / (1 / delta_t))# 2048 # RATE / number of updates per second
+RECORD_SECONDS = 20
+
+# use a Blackman window
+window = np.blackman(CHUNK)
 
 gradients = [plt.cm.gist_rainbow,
             plt.cm.jet,
@@ -203,6 +212,20 @@ class PerlinBackground(Background):
             self.__freq = freq * self.__octaves # have this changed by remote input
             self.__z_offset = np.random.randint(2 ** 8)
             self.__dim = dim
+
+            # audio equalizer shit
+	    self.p = pyaudio.PyAudio()
+	    # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True,
+	                            # frames_per_buffer=CHUNK)
+	
+	    #self.stream = self.p.open(
+	    #    format = pyaudio.paInt16,
+	    #    channels = 1,
+	    #    rate = 44100,
+	    #    input_device_index = 2, # this needs to be tested
+	    #    input = True,
+	    #    frames_per_buffer=CHUNK)
+
 
     def __str__(self):
      return 'Perlin Background Object'
