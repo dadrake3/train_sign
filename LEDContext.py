@@ -345,7 +345,7 @@ class EqualizerBackground(PerlinBackground):
 
     def get_background(self, clk):
         z = clk * self.__background_speed + self.__z_offset
-        img = Image.fromarray(img_array).convert('RGB')
+        
 
         data = STREAM.read(CHUNK, exception_on_overflow=False)
         wave_data = wave.struct.unpack("%dh" % CHUNK, data)
@@ -376,6 +376,9 @@ class EqualizerBackground(PerlinBackground):
             for x in range(self.screen_width):
                 if 16 - y > audio_data[x]:
                     img_array[y][x] *= 0
+
+        img = Image.fromarray(img_array).convert('RGB')
+        
         return img
 
     
