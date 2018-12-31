@@ -31,17 +31,17 @@ RECORD_SECONDS = 20
 # use a Blackman window
 window = np.blackman(CHUNK)
 
-# p = pyaudio.PyAudio()
+p = pyaudio.PyAudio()
 #             # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
     
 # print('opening stream')
-# STREAM = p.open(
-#     format = pyaudio.paInt16,
-#     channels = 1,
-#     rate = 44100,
-#     input_device_index = 0, # this needs to be tested
-#     input = True,
-#     frames_per_buffer=CHUNK)
+STREAM = p.open(
+    format = pyaudio.paInt16,
+    channels = 1,
+    rate = 44100,
+    input_device_index = 0, # this needs to be tested
+    input = True,
+    frames_per_buffer=CHUNK)
 # print('stream opened')
 
 
@@ -215,13 +215,13 @@ class PerlinBackground(Background):
             self.__dim = dim
             self.__audio_data = None
             self.__pa = pyaudio.PyAudio()
-            self.__stream = self.__pa.open(
-                format = pyaudio.paInt16,
-                channels = 1,
-                rate = 44100,
-                input_device_index = 0, # this needs to be tested
-                input = True,
-                frames_per_buffer=CHUNK)
+            # self.__stream = self.__pa.open(
+            #     format = pyaudio.paInt16,
+            #     channels = 1,
+            #     rate = 44100,
+            #     input_device_index = 0, # this needs to be tested
+            #     input = True,
+            #     frames_per_buffer=CHUNK)
 
 
     def __str__(self):
@@ -232,7 +232,7 @@ class PerlinBackground(Background):
 
         if self.__dim == 5:
         # if 1:
-            data = self.__stream.read(CHUNK, exception_on_overflow=False)
+            data = STREAM.read(CHUNK, exception_on_overflow=False)
             wave_data = wave.struct.unpack("%dh" % CHUNK, data)
             np_array_data = np.array(wave_data)
             audio_data = np.abs(np_array_data * window)
@@ -321,11 +321,11 @@ class PerlinBackground(Background):
             self.__dim = (self.__dim + 1) % 5
 
     def __del__(self):
-        self.__stream.stop_stream()
-        self.__stream.close()
+        # self.__stream.stop_stream()
+        # self.__stream.close()
 
-        self.__pa.terminate()
-
+        # self.__pa.terminate()
+        pass
 
 
 class FillBackground(Background):
