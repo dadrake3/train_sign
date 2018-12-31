@@ -21,7 +21,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 CHUNK = int(RATE / (1 / delta_t))# 2048 # RATE / number of updates per second
-CHUNK = 2
+CHUNK = 64
 RECORD_SECONDS = 20
 
 
