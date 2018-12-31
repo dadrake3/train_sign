@@ -264,6 +264,7 @@ class PerlinBackground(Background):
 
             # norm2 = plt.Normalize(0, max_)
             # audio_data = 16 * norm2(audio_data)
+            print('here')
 
             img = Image.new('RGB', (self.screen_width, self.screen_height))
             # # print(max_)
