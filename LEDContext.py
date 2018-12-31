@@ -21,10 +21,27 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 CHUNK = int(RATE / (1 / delta_t))# 2048 # RATE / number of updates per second
+
 RECORD_SECONDS = 20
+
+
+
 
 # use a Blackman window
 window = np.blackman(CHUNK)
+
+p = pyaudio.PyAudio()
+            # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
+    
+print('opening stream')
+STREAM = p.open(
+    format = pyaudio.paInt16,
+    channels = 1,
+    rate = 44100,
+    input_device_index = 0, # this needs to be tested
+    input = True,
+    frames_per_buffer=CHUNK)
+print('stream opened')
 
 gradients = [plt.cm.gist_rainbow,
             plt.cm.jet,
@@ -68,19 +85,6 @@ class LEDContext(object):
         self.screen_height = screen_height
 
         self.__brightness = 0.5
-
-        self.p = pyaudio.PyAudio()
-            # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rate=RATE, input=True, frames_per_buffer=CHUNK)
-    
-        print('opening stream')
-        self.stream = self.p.open(
-            format = pyaudio.paInt16,
-            channels = 1,
-            rate = 44100,
-            input_device_index = 0, # this needs to be tested
-            input = True,
-            frames_per_buffer=CHUNK)
-        print('stream opened')
 
 
     def param_dispatch(self):
@@ -143,15 +147,6 @@ class LEDContext(object):
 
                 clk = (clk + 1) % (2 ** 32)
 
-
-                data = self.stream.read(CHUNK, exception_on_overflow=False)
-                wave_data = wave.struct.unpack("%dh" % CHUNK, data)
-                np_array_data = np.array(wave_data)
-                audio_data = np.abs(np_array_data * window)
-                audio_data = audio_data[::int(CHUNK / 64)]
-                max_ = max(audio_data)
-
-                print(max_)
 
     def update(self, clk):
         img = self.background.get_background(clk)
@@ -259,7 +254,7 @@ class PerlinBackground(Background):
         z = clk * self.__background_speed + self.__z_offset
 
         if self.__dim == 3:
-            data = self.stream.read(CHUNK, exception_on_overflow=False)
+            data = STREAM.read(CHUNK, exception_on_overflow=False)
             wave_data = wave.struct.unpack("%dh" % CHUNK, data)
             np_array_data = np.array(wave_data)
             audio_data = np.abs(np_array_data * window)
