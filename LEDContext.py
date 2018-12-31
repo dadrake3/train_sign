@@ -365,7 +365,7 @@ class EqualizerBackground(PerlinBackground):
 
         audio_data = 16 * norm2(audio_data)
 
-         if self.__smooth:
+        if self.__smooth:
             audio_data = gaussian_filter1d(audio_data, 1)
 
 
