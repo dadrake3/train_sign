@@ -253,7 +253,8 @@ class PerlinBackground(Background):
     def get_background(self, clk):
         z = clk * self.__background_speed + self.__z_offset
 
-        if self.__dim == 3:
+        # if self.__dim == 3:
+        if 1:
             data = STREAM.read(CHUNK, exception_on_overflow=False)
             wave_data = wave.struct.unpack("%dh" % CHUNK, data)
             np_array_data = np.array(wave_data)
