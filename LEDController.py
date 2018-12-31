@@ -231,6 +231,6 @@ class LEDController(RGBMatrixBase):
 
     def equalizer(self, context):
         fg = Foreground()
-        bg = PerlinBackground(dim=5, static=true)
+        bg = PerlinBackground(dim=5, static=True)
         context.task_queue.put([fg, bg])
 
