@@ -80,6 +80,10 @@ class LEDController(RGBMatrixBase):
 
         elif func == 'func_5':
             self.fade(context)
+
+        elif func == 'func_6':
+            self.equalizer(context)
+
         else:
             self.nop(context)
 
@@ -224,3 +228,9 @@ class LEDController(RGBMatrixBase):
         bg = FillBackground(color_idx=0.25, fade=True)
 
         context.task_queue.put([fg, bg])
+
+    def equalizer(self, context):
+        fg = Foreground()
+        bg = PerlinBackground(dim=5, static=true)
+        context.task_queue.put([fg, bg])
+

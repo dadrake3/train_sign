@@ -201,7 +201,7 @@ class Background(object):
 
 class PerlinBackground(Background):
 
-    def __init__(self, start_gradient=0, background_speed=2, octaves=4, freq=32.0, static=False, background_brightness=1.0, dim=0):
+    def __init__(self, start_gradient=0, background_speed=2, octaves=4, freq=32.0, static=False, background_brightness=1.0, dim=2):
             super(PerlinBackground,self).__init__(static=static, background_brightness=background_brightness)
             self.__bw = np.zeros(shape=(16, 64)) # used for perlin gradients
 
@@ -295,7 +295,7 @@ class PerlinBackground(Background):
         return img
 
     def change_background(self, delta):
-        if not self.static:
+        if not self.static or self.__dim == 5: # allow gradient change for equalizer
             self.__curr_gradient = (self.__curr_gradient + delta) % len(gradients)
 
             # max(min(self.__curr_gradient + delta, len(gradients) - 1), 0)
@@ -306,7 +306,7 @@ class PerlinBackground(Background):
 
     def modifier(self):
         if not self.static:
-            self.__dim = (self.__dim + 1) % 6
+            self.__dim = (self.__dim + 1) % 5
 
 
 
