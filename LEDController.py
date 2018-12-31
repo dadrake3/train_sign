@@ -40,7 +40,7 @@ class LEDController(RGBMatrixBase):
         # print(self.matrix.brightness)
 
 
-        func = 'func_2' # start off in info loop
+        func = 'func_1' # start off in info loop
 
         while 1:
             #holds function the same for times tasks
