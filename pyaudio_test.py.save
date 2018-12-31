@@ -1,0 +1,760 @@
+or: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM dmix
+opening stream
+stream opened
+pi@raspberrypi:~/rpi-rgb-led-matrix/bindings/python/train_sign $ nano LEDContext.py
+pi@raspberrypi:~/rpi-rgb-led-matrix/bindings/python/train_sign $ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified:   pyaudio_test.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+pi@raspberrypi:~/rpi-rgb-led-matrix/bindings/python/train_sign $ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/dadrake3/train_sign
+   059f250..a1fba64  master     -> origin/master
+Updating 059f250..a1fba64
+Fast-forward
+ LEDContext.py | 62 ++++++++++++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 46 insertions(+), 16 deletions(-)
+pi@raspberrypi:~/rpi-rgb-led-matrix/bindings/python/train_sign $ ./main.sh
+starting IR
+Press CTRL-C to stop sample
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM sysdefault
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM sysdefault
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround40
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround41
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround50
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround51
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround71
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned er            # self.stream = self.p.open(format=pyaudio.paInt16, channels=1, rateror: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM dmix
+opening stream
+^C
+
+pi@raspberrypi:~/rpi-rgb-led-matrix/bindings/python/train_sign $ vim LEDContext.py
+pi@raspberrypi:~/rpi-rgb-led-matrix/bindings/python/train_sign $ ./main.sh
+starting IR
+Press CTRL-C to stop sample
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM sysdefault
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM sysdefault
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround40
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround41
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround50
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround51
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround71
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM dmix
+opening stream
+func_2 IR process
+opening stream
+Process Process-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.5/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/pi/rpi-rgb-led-matrix/bindings/python/train_sign/RGBMatrixBase.py", line 66, in process
+    self.run(context)
+  File "/home/pi/rpi-rgb-led-matrix/bindings/python/train_sign/LEDController.py", line 47, in run
+
+    self.func_dispatch(func, context)
+  File "/home/pi/rpi-rgb-led-matrix/bindings/python/train_sign/LEDController.py", line 73, in func_dispatch
+    self.perlin(context)
+  File "/home/pi/rpi-rgb-led-matrix/bindings/python/train_sign/LEDController.py", line 201, in perlin
+    bg = PerlinBackground()
+  File "/home/pi/rpi-rgb-led-matrix/bindings/python/train_sign/LEDContext.py", line 227, in __init__
+    frames_per_buffer=CHUNK)
+  File "/usr/local/lib/python3.5/dist-packages/pyaudio.py", line 750, in open
+    stream = Stream(self, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/pyaudio.py", line 441, in __init__
+    self._stream = pa.open(**arguments)
+OSError: [Errno -9996] Invalid input device (no default output device)
+func_2 IR process
+func_2 IR process
+func_3 IR process
+func_5 IR process
+^C
+
+pi@raspberrypi:~/rpi-rgb-led-matrix/bindings/python/train_sign $ vim LEDContext.py
+pi@raspberrypi:~/rpi-rgb-led-matrix/bindings/python/train_sign $ python3
+Python 3.5.3 (default, Sep 27 2018, 17:25:39)
+[GCC 6.3.0 20170516] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pyaudio
+>>> delta_t = 0.1
+>>> FORMAT = pyaudio.paInt16
+>>> CHANNELS = 1
+>>> RATE = 44100
+>>> CHUNK = int(RATE / (1 / delta_t))# 2048 # RATE / number of updates per second
+>>> RECORD_SECONDS = 20
+>>> p = pyaudio.PyAudio()
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM sysdefault
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM sysdefault
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM front
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM surround21
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM surround21
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM surround40
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM surround41
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM surround50
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM surround51
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM surround71
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM iec958
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM spdif
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM spdif
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4528:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5007:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2495:(snd_pcm_open_noupdate) Unknown PCM dmix
+>>> stream = p.open(
+...                 format = pyaudio.paInt16,
+...                 channels = 1,
+...                 rate = 44100,
+...                 input_device_index = 0, # this needs to be tested
+...                 input = True,
+...                 frames_per_buffer=CHUNK)
+>>>
+>>>
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+>>> print(data)
+b'\xb4\x00\xb5\x00\xb3\x00\xb2\x00\xb1\x00\xb4\x00\xb7\x00\xb4\x00\xb2\x00\xb3\x00\xb4\x00\xb3\x00\xb5\x00\xb0\x00\xb3\x00\xb2\x00\xb2\x00\xb1\x00\xaf\x00\xae\x00\xae\x00\xa9\x00\xaa\x00\xaa\x00\xa9\x00\xab\x00\xa7\x00\xa6\x00\xa9\x00\xa6\x00\xa1\x00\xa4\x00\xa5\x00\xa3\x00\xa4\x00\xa4\x00\xa5\x00\xa6\x00\xa4\x00\xa4\x00\xa5\x00\xa4\x00\xa6\x00\xa4\x00\xa5\x00\xa7\x00\xa5\x00\xa6\x00\xa5\x00\xaa\x00\xac\x00\xaf\x00\xaf\x00\xab\x00\xae\x00\xac\x00\xb2\x00\xad\x00\xb5\x00\xb3\x00\xaf\x00\xb1\x00\xb6\x00\xb3\x00\xb7\x00\xb7\x00\xb7\x00\xba\x00\xba\x00\xb8\x00\xb9\x00\xb9\x00\xb9\x00\xbf\x00\xc0\x00\xbd\x00\xbb\x00\xbe\x00\xbe\x00\xc0\x00\xc3\x00\xc4\x00\xc0\x00\xc1\x00\xc3\x00\xc0\x00\xc2\x00\xc2\x00\xc0\x00\xb3\x00\xb5\x00\xb6\x00\xb9\x00\xb7\x00\xb4\x00\xb4\x00\xba\x00\xb3\x00\xb2\x00\xb4\x00\xb4\x00\xb3\x00\xb2\x00\xb2\x00\xb2\x00\xb7\x00\xb6\x00\xb6\x00\xb5\x00\xb0\x00\xb8\x00\xb5\x00\xb6\x00\xb7\x00\xb7\x00\xbb\x00\xbc\x00\xbb\x00\xb7\x00\xb6\x00\xb6\x00\xb5\x00\xb8\x00\xb7\x00\xb2\x00\xb2\x00\xb6\x00\xb7\x00\xb4\x00\xb8\x00\xb6\x00\xb7\x00\xb4\x00\xb4\x00\xb4\x00\xb6\x00\xb0\x00\xb2\x00\xb9\x00\xb7\x00\xb5\x00\xb7\x00\xbb\x00\xb9\x00\xb6\x00\xba\x00\xb9\x00\xb4\x00\xb9\x00\xb5\x00\xba\x00\xb4\x00\xb7\x00\xb7\x00\xb5\x00\xb6\x00\xb7\x00\xb8\x00\xba\x00\xb7\x00\xb6\x00\xb7\x00\xb8\x00\xb7\x00\xb7\x00\xb8\x00\xb5\x00\xb7\x00\xb5\x00\xb9\x00\xbb\x00\xb7\x00\xb9\x00\xb7\x00\xba\x00\xb9\x00\xb6\x00\xb4\x00\xb5\x00\xb8\x00\xb6\x00\xb8\x00\xba\x00\xbc\x00\xb6\x00\xbc\x00\xb6\x00\xb8\x00\xb6\x00\xb5\x00\xba\x00\xb7\x00\xba\x00\xb5\x00\xb4\x00\xb3\x00\xb9\x00\xb9\x00\xba\x00\xb8\x00\xb7\x00\xb6\x00\xb8\x00\xb6\x00\xb6\x00\xb6\x00\xb8\x00\xbb\x00\xbd\x00\xb6\x00\xb9\x00\xb7\x00\xb7\x00\xb7\x00\xbe\x00\xbc\x00\xb7\x00\xb8\x00\xba\x00\xb6\x00\xb9\x00\xb9\x00\xb6\x00\xb4\x00\xb9\x00\xb8\x00\xb5\x00\xbb\x00\xb7\x00\xba\x00\xb6\x00\xb6\x00\xb6\x00\xb4\x00\xb6\x00\xb8\x00\xb4\x00\xb5\x00\xba\x00\xb6\x00\xb6\x00\xb8\x00\xb9\x00\xb4\x00\xb5\x00\xb0\x00\xb3\x00\xb6\x00\xb5\x00\xb3\x00\xb8\x00\xb4\x00\xb1\x00\xb1\x00\xb3\x00\xb5\x00\xb1\x00\xb4\x00\xb5\x00\xb3\x00\xb3\x00\xb2\x00\xb2\x00\xb2\x00\xb7\x00\xb0\x00\xb5\x00\xb7\x00\xb4\x00\xb4\x00\xb1\x00\xb6\x00\xb3\x00\xb4\x00\xb6\x00\xba\x00\xb2\x00\xb2\x00\xb6\x00\xb4\x00\xb5\x00\xb1\x00\xb3\x00\xb2\x00\xb3\x00\xb4\x00\xb6\x00\xb3\x00\xb2\x00\xb2\x00\xb2\x00\xb3\x00\xb5\x00\xb7\x00\xb2\x00\xb4\x00\xb6\x00\xb6\x00\xb5\x00\xb4\x00\xb3\x00\xb3\x00\xb2\x00\xb2\x00\xb2\x00\xb5\x00\xb4\x00\xb7\x00\xb3\x00\xb5\x00\xb7\x00\xb1\x00\xb4\x00\xb0\x00\xb2\x00\xb2\x00\xac\x00\xb5\x00\xb4\x00\xb4\x00\xaf\x00\xaf\x00\xb0\x00\xb0\x00\xaf\x00\xaa\x00\xaf\x00\xab\x00\xab\x00\xa9\x00\xad\x00\xaf\x00\xaa\x00\xa9\x00\xaa\x00\xaa\x00\xaf\x00\xac\x00\xab\x00\xab\x00\xaa\x00\xa7\x00\xab\x00\xa9\x00\xad\x00\xaa\x00\xa6\x00\xa7\x00\xab\x00\xaa\x00\xa6\x00\xa6\x00\xa8\x00\xa8\x00\xa5\x00\xa8\x00\xa4\x00\xa7\x00\xa7\x00\xaa\x00\xa9\x00\xab\x00\xac\x00\xa3\x00\xa8\x00\xab\x00\xab\x00\xaa\x00\xab\x00\xab\x00\xa7\x00\xab\x00\xab\x00\xa7\x00\xa5\x00\xaa\x00\xa8\x00\xa8\x00\xa6\x00\xa8\x00\xaa\x00\xa7\x00\xaa\x00\xab\x00\xa7\x00\xa8\x00\xa8\x00\xa7\x00\xa7\x00\xa7\x00\xa8\x00\xa6\x00\xa6\x00\xa6\x00\xa7\x00\xa6\x00\xaa\x00\xa5\x00\xa8\x00\xa6\x00\xa7\x00\xa8\x00\xa7\x00\xa5\x00\xab\x00\xaa\x00\xa9\x00\xa3\x00\xa5\x00\xa5\x00\xa2\x00\xa4\x00\xa8\x00\xa8\x00\xa5\x00\xa8\x00\xa5\x00\xa9\x00\xa4\x00\xa5\x00\xa4\x00\xa3\x00\xa3\x00\xa7\x00\xa9\x00\xa8\x00\xa6\x00\xa5\x00\xa5\x00\xaa\x00\xaa\x00\xa7\x00\xa6\x00\xa5\x00\xa9\x00\xa7\x00\xa5\x00\xa6\x00\xa6\x00\xa7\x00\xa5\x00\xab\x00\xa9\x00\xa6\x00\xa7\x00\xa5\x00\xa6\x00\xa5\x00\xa6\x00\xa6\x00\xa5\x00\xa6\x00\xa5\x00\xa4\x00\xa3\x00\xa8\x00\xa8\x00\xa7\x00\xa6\x00\xa8\x00\xa9\x00\xab\x00\xa8\x00\xa4\x00\xa6\x00\xa5\x00\xa3\x00\xa7\x00\xa7\x00\xaa\x00\xa4\x00\xaa\x00\xab\x00\xab\x00\xa9\x00\xa8\x00\xa6\x00\xa5\x00\xa5\x00\xa3\x00\xa5\x00\xa5\x00\xa8\x00\xa8\x00\xa9\x00\xad\x00\xa7\x00\xa4\x00\xa7\x00\xaa\x00\xa2\x00\xaa\x00\xa5\x00\xaa\x00\xa9\x00\xa3\x00\xa7\x00\xa4\x00\xa9\x00\xa4\x00\xa5\x00\xa4\x00\xa1\x00\xa8\x00\xa8\x00\xa8\x00\xa5\x00\xa6\x00\xa5\x00\xa4\x00\xa4\x00\xa5\x00\xa5\x00\xa4\x00\xa4\x00\xa5\x00\xa4\x00\xa1\x00\xa7\x00\xa1\x00\xa5\x00\xa8\x00\xa2\x00\xa5\x00\xa5\x00\xa6\x00\xa4\x00\xa7\x00\xa4\x00\xa2\x00\xa8\x00\xa4\x00\xa3\x00\xa4\x00\xa3\x00\x9f\x00\xa1\x00\xa2\x00\x9f\x00\xa3\x00\xa0\x00\x9f\x00\xa4\x00\x9e\x00\xa1\x00\xa5\x00\x9f\x00\xa0\x00\x9d\x00\xa1\x00\xa1\x00\xa2\x00\xa0\x00\xa8\x00\xa2\x00\xa3\x00\x9f\x00\x9d\x00\x9f\x00\xa4\x00\xa3\x00\xa2\x00\xa7\x00\xa3\x00\xa3\x00\xa4\x00\xa1\x00\xa2\x00\xa5\x00\xa1\x00\xa2\x00\xa2\x00\xa2\x00\xa0\x00\xa4\x00\xa0\x00\xa4\x00\xa5\x00\xa2\x00\xa2\x00\xa9\x00\x9d\x00\x9f\x00\xa3\x00\xa3\x00\xa4\x00\xa2\x00\xa5\x00\xa4\x00\xa1\x00\xa2\x00\xa3\x00\xa0\x00\xa4\x00\x9e\x00\xa5\x00\xa5\x00\xa6\x00\xa4\x00\xa4\x00\xa3\x00\xa5\x00\xa0\x00\xa7\x00\xa5\x00\x9f\x00\xa1\x00\xa5\x00\xa3\x00\xa6\x00\xa2\x00\xa4\x00\xa2\x00\x9f\x00\xa3\x00\xa6\x00\xa0\x00\xa0\x00\x9e\x00\xa3\x00\xa0\x00\x9d\x00\xa0\x00\xa0\x00\x9c\x00\x9d\x00\xa0\x00\x9f\x00\x9b\x00\x9f\x00\x98\x00\x9e\x00\xa0\x00\xa0\x00\x9d\x00\x9f\x00\x9f\x00\x9d\x00\x9e\x00\x9e\x00\x9e\x00\x9e\x00\x9c\x00\x9e\x00\x9b\x00\x9a\x00\x95\x00\x9d\x00\x99\x00\x9a\x00\x9a\x00\x99\x00\x9c\x00\x9a\x00\x97\x00\x98\x00\x9a\x00\x96\x00\x98\x00\x95\x00\x9e\x00\x9b\x00\x9c\x00\x97\x00\x98\x00\x98\x00\x99\x00\x9a\x00\x99\x00\x99\x00\x9e\x00\x9a\x00\x99\x00\x97\x00\x98\x00\x9a\x00\x98\x00\x98\x00\x9a\x00\x99\x00\x97\x00\x9a\x00\x9e\x00\x98\x00\x97\x00\x94\x00\x9a\x00\x9b\x00\x96\x00\x9c\x00\x99\x00\x9b\x00\x98\x00\x97\x00\x97\x00\x9b\x00\x97\x00\x9a\x00\x99\x00\x98\x00\x96\x00\x99\x00\x99\x00\x98\x00\x98\x00\x96\x00\x98\x00\x97\x00\x9b\x00\x9d\x00\x97\x00\x9b\x00\x9d\x00\x98\x00\x9b\x00\x9a\x00\x99\x00\x9c\x00\x9a\x00\x98\x00\x97\x00\x98\x00\x9b\x00\x97\x00\x96\x00\x9a\x00\x97\x00\x9b\x00\x98\x00\x96\x00\x9a\x00\x9b\x00\x96\x00\x98\x00\x99\x00\x98\x00\x98\x00\x95\x00\x98\x00\x99\x00\x97\x00\x99\x00\x99\x00\x9b\x00\x9c\x00\x9b\x00\x9b\x00\x9c\x00\x9e\x00\x9c\x00\x98\x00\x9a\x00\x9e\x00\x9c\x00\x98\x00\x9a\x00\x9a\x00\x9a\x00\x9a\x00\x99\x00\x97\x00\x98\x00\x9a\x00\x9d\x00\x99\x00\x9b\x00\xa0\x00\x9c\x00\x9a\x00\x98\x00\x9c\x00\x9d\x00\x99\x00\x98\x00\x9e\x00\x9d\x00\x9a\x00\x9b\x00\x9a\x00\x9b\x00\x99\x00\x9b\x00\x99\x00\x9b\x00\x98\x00\x9d\x00\x99\x00\x98\x00\x98\x00\x97\x00\x9c\x00\x96\x00\x9a\x00\x97\x00\x97\x00\x9a\x00\x95\x00\x96\x00\x96\x00\x97\x00\x99\x00\x99\x00\x9f\x00\x9c\x00\x98\x00\x9c\x00\x9a\x00\x95\x00\x96\x00\x99\x00\x99\x00\x9d\x00\x97\x00\x9b\x00\x98\x00\x9b\x00\x97\x00\x99\x00\x9a\x00\x99\x00\x9c\x00\x97\x00\x9a\x00\x99\x00\x9b\x00\x99\x00\x98\x00\x98\x00\x98\x00\x9b\x00\x99\x00\x97\x00\x98\x00\x97\x00\x96\x00\x9a\x00\x9a\x00\x9a\x00\x97\x00\x97\x00\x9d\x00\x9b\x00\x9a\x00\x9a\x00\x9b\x00\x98\x00\x9d\x00\x97\x00\x99\x00\x9a\x00\x9d\x00\x97\x00\x97\x00\x97\x00\x99\x00\x96\x00\x9c\x00\x98\x00\x9c\x00\x9a\x00\x96\x00\x99\x00\x9a\x00\x99\x00\x9b\x00\x9d\x00\x98\x00\x9b\x00\x9a\x00\x98\x00\x96\x00\x97\x00\x95\x00\x98\x00\x94\x00\x98\x00\x96\x00\x93\x00\x94\x00\x94\x00\x97\x00\x92\x00\x95\x00\x95\x00\x97\x00\x95\x00\x91\x00\x94\x00\x96\x00\x94\x00\x90\x00\x93\x00\x91\x00\x93\x00\x93\x00\x94\x00\x8f\x00\x92\x00\x92\x00\x99\x00\x94\x00\x97\x00\x98\x00\x91\x00\x90\x00\x8e\x00\x8e\x00\x93\x00\x90\x00\x92\x00\x8f\x00\x90\x00\x91\x00\x8f\x00\x90\x00\x92\x00\x90\x00\x90\x00\x8e\x00\x8f\x00\x91\x00\x93\x00\x91\x00\x95\x00\x92\x00\x94\x00\x93\x00\x95\x00\x93\x00\x94\x00\x92\x00\x90\x00\x92\x00\x97\x00\x96\x00\x96\x00\x90\x00\x93\x00\x8e\x00\x90\x00\x92\x00\x90\x00\x92\x00\x90\x00\x8f\x00\x8e\x00\x91\x00\x93\x00\x92\x00\x90\x00\x92\x00\x90\x00\x95\x00\x90\x00\x91\x00\x95\x00\x91\x00\x94\x00\x93\x00\x90\x00\x8f\x00\x91\x00\x8e\x00\x92\x00\x90\x00\x8f\x00\x91\x00\x91\x00\x93\x00\x94\x00\x90\x00\x8e\x00\x94\x00\x90\x00\x92\x00\x91\x00\x94\x00\x92\x00\x95\x00\x96\x00\x90\x00\x8f\x00\x92\x00\x92\x00\x8e\x00\x90\x00\x94\x00\x91\x00\x90\x00\x8e\x00\x95\x00\x88\x00\x90\x00\x8e\x00\x92\x00\x8e\x00\x8e\x00\x90\x00\x92\x00\x8e\x00\x90\x00\x8f\x00\x8f\x00\x8b\x00\x8d\x00\x8d\x00\x8f\x00\x8f\x00\x8b\x00\x8e\x00\x8c\x00\x90\x00\x8b\x00\x8b\x00\x93\x00\x90\x00\x8e\x00\x91\x00\x8f\x00\x92\x00\x8b\x00\x8f\x00\x8d\x00\x88\x00\x8c\x00\x8c\x00\x8b\x00\x8b\x00\x8a\x00\x8f\x00\x89\x00\x8d\x00\x89\x00\x8a\x00\x8f\x00\x90\x00\x8f\x00\x8d\x00\x89\x00\x8e\x00\x8c\x00\x8f\x00\x8b\x00\x8d\x00\x8c\x00\x91\x00\x90\x00\x8f\x00\x8e\x00\x91\x00\x92\x00\x8f\x00\x8c\x00\x8d\x00\x8f\x00\x8f\x00\x90\x00\x8e\x00\x90\x00\x90\x00\x8d\x00\x8f\x00\x8f\x00\x8f\x00\x92\x00\x98\x00\x94\x00\x96\x00\x92\x00\x92\x00\x8e\x00\x8c\x00\x91\x00\x8e\x00\x8e\x00\x88\x00\x8f\x00\x8f\x00\x90\x00\x8b\x00\x8a\x00\x90\x00\x8c\x00\x8f\x00\x8d\x00\x8e\x00\x8c\x00\x8d\x00\x8c\x00\x8d\x00\x8c\x00\x8b\x00\x8c\x00\x86\x00\x8f\x00\x8d\x00\x8d\x00\x8f\x00\x8b\x00\x91\x00\x8e\x00\x87\x00\x8e\x00\x8c\x00\x8a\x00\x8b\x00\x93\x00\x8b\x00\x8b\x00\x8d\x00\x8f\x00\x8f\x00\x8a\x00\x8a\x00\x8b\x00\x88\x00\x89\x00\x8b\x00\x8d\x00\x8a\x00\x8a\x00\x8c\x00\x87\x00\x8c\x00\x8d\x00\x8e\x00\x8a\x00\x8e\x00\x8e\x00\x8b\x00\x8c\x00\x88\x00\x8c\x00\x8b\x00\x87\x00\x86\x00\x88\x00\x8d\x00\x90\x00\x8e\x00\x8d\x00\x8e\x00\x90\x00\x8f\x00\x89\x00\x8d\x00\x8b\x00\x8b\x00\x8b\x00\x8a\x00\x8f\x00\x8d\x00\x8d\x00\x8a\x00\x88\x00\x8b\x00\x89\x00\x8d\x00\x90\x00\x8e\x00\x8e\x00\x90\x00\x8d\x00\x8e\x00\x8f\x00\x8f\x00\x92\x00\x8d\x00\x90\x00\x8c\x00\x8f\x00\x8e\x00\x8f\x00\x90\x00\x8d\x00\x8f\x00\x8f\x00\x91\x00\x8c\x00\x8d\x00\x91\x00\x93\x00\x8f\x00\x8d\x00\x8f\x00\x90\x00\x90\x00\x8c\x00\x8d\x00\x8d\x00\x8e\x00\x91\x00\x8b\x00\x91\x00\x8c\x00\x8e\x00\x91\x00\x90\x00\x95\x00\x93\x00\x93\x00\x8b\x00\x8f\x00\x90\x00\x8f\x00\x8d\x00\x8f\x00\x8b\x00\x8d\x00\x8f\x00\x92\x00\x8e\x00\x90\x00\x8d\x00\x88\x00\x8e\x00\x8e\x00\x8e\x00\x8b\x00\x8b\x00\x8c\x00\x8b\x00\x8e\x00\x89\x00\x89\x00\x8b\x00\x8b\x00\x8d\x00\x89\x00\x89\x00\x88\x00\x88\x00\x88\x00\x88\x00\x8a\x00\x8b\x00\x8a\x00\x89\x00\x8a\x00\x87\x00\x8b\x00\x81\x00\x8a\x00\x8a\x00\x83\x00\x83\x00\x86\x00\x84\x00\x83\x00\x81\x00\x85\x00\x85\x00\x84\x00\x82\x00\x82\x00\x82\x00\x7f\x00\x80\x00\x81\x00\x83\x00\x7f\x00\x81\x00\x80\x00\x7f\x00\x85\x00}\x00~\x00~\x00~\x00\x82\x00\x7f\x00\x80\x00\x7f\x00\x81\x00\x84\x00\x81\x00\x81\x00}\x00\x82\x00\x7f\x00\x82\x00\x7f\x00\x80\x00\x84\x00\x81\x00\x81\x00\x82\x00\x85\x00\x80\x00\x81\x00\x82\x00\x7f\x00{\x00\x7f\x00\x81\x00}\x00\x7f\x00\x80\x00}\x00\x83\x00\x81\x00\x7f\x00\x83\x00\x83\x00\x81\x00|\x00\x7f\x00\x83\x00\x81\x00\x83\x00\x83\x00\x84\x00\x81\x00\x85\x00\x80\x00\x85\x00\x80\x00\x7f\x00\x81\x00\x80\x00\x85\x00\x87\x00\x84\x00\x83\x00\x86\x00\x81\x00\x7f\x00\x80\x00\x82\x00\x80\x00\x80\x00\x82\x00\x80\x00\x81\x00~\x00~\x00\x7f\x00\x83\x00\x80\x00\x80\x00\x80\x00z\x00\x83\x00\x83\x00}\x00~\x00\x7f\x00\x83\x00}\x00\x7f\x00\x84\x00\x7f\x00\x7f\x00\x7f\x00|\x00\x85\x00\x82\x00\x7f\x00\x82\x00~\x00\x80\x00\x81\x00{\x00\x82\x00~\x00z\x00\x84\x00\x7f\x00\x80\x00~\x00\x7f\x00\x81\x00\x81\x00{\x00\x7f\x00\x81\x00\x80\x00\x7f\x00\x7f\x00\x81\x00\x82\x00{\x00\x7f\x00\x81\x00\x82\x00}\x00\x81\x00\x82\x00~\x00\x80\x00{\x00\x81\x00\x7f\x00\x80\x00|\x00\x82\x00\x81\x00}\x00\x80\x00~\x00\x80\x00\x80\x00\x82\x00\x84\x00~\x00|\x00\x85\x00\x80\x00\x81\x00\x7f\x00}\x00\x7f\x00\x80\x00\x85\x00\x81\x00\x82\x00\x85\x00\x83\x00\x81\x00\x85\x00\x85\x00\x83\x00\x84\x00\x81\x00\x84\x00\x83\x00\x82\x00\x81\x00\x84\x00\x83\x00\x83\x00\x85\x00\x82\x00\x80\x00\x83\x00\x83\x00\x85\x00\x85\x00\x82\x00\x81\x00\x82\x00\x83\x00\x82\x00\x86\x00\x84\x00\x84\x00\x83\x00\x88\x00\x84\x00\x84\x00\x81\x00\x84\x00\x86\x00\x82\x00\x86\x00\x80\x00\x84\x00\x7f\x00~\x00\x82\x00\x83\x00\x81\x00\x84\x00\x8a\x00\x82\x00\x83\x00\x80\x00\x83\x00~\x00\x81\x00\x84\x00\x82\x00\x7f\x00\x81\x00\x87\x00|\x00\x7f\x00}\x00~\x00}\x00x\x00}\x00{\x00{\x00\x7f\x00\x82\x00|\x00~\x00|\x00\x7f\x00~\x00~\x00\x7f\x00~\x00~\x00|\x00\x81\x00\x80\x00}\x00\x82\x00~\x00z\x00|\x00~\x00}\x00~\x00z\x00|\x00\x81\x00~\x00{\x00\x83\x00\x85\x00\x7f\x00\x80\x00~\x00\x7f\x00~\x00\x7f\x00\x81\x00\x80\x00}\x00\x7f\x00}\x00\x7f\x00\x80\x00~\x00\x80\x00\x83\x00\x81\x00\x81\x00\x80\x00}\x00\x83\x00}\x00|\x00~\x00{\x00\x7f\x00\x82\x00\x83\x00\x7f\x00\x7f\x00\x82\x00\x83\x00\x7f\x00\x80\x00\x7f\x00\x81\x00}\x00\x7f\x00\x86\x00\x83\x00|\x00~\x00\x84\x00\x82\x00\x82\x00\x7f\x00\x81\x00~\x00\x81\x00~\x00~\x00y\x00|\x00\x80\x00{\x00~\x00\x81\x00~\x00~\x00\x80\x00\x83\x00\x7f\x00|\x00\x80\x00\x7f\x00\x7f\x00|\x00{\x00|\x00x\x00{\x00{\x00|\x00~\x00z\x00y\x00{\x00y\x00x\x00v\x00w\x00w\x00{\x00w\x00y\x00x\x00y\x00x\x00z\x00z\x00z\x00u\x00s\x00u\x00z\x00w\x00{\x00v\x00x\x00w\x00u\x00w\x00z\x00t\x00x\x00t\x00|\x00u\x00z\x00w\x00v\x00z\x00w\x00y\x00x\x00v\x00y\x00y\x00\x7f\x00y\x00w\x00x\x00}\x00w\x00v\x00y\x00y\x00~\x00|\x00x\x00y\x00u\x00z\x00y\x00v\x00y\x00{\x00x\x00t\x00y\x00x\x00x\x00v\x00v\x00{\x00{\x00v\x00v\x00y\x00w\x00w\x00x\x00v\x00v\x00y\x00u\x00v\x00x\x00s\x00u\x00|\x00x\x00y\x00u\x00w\x00x\x00w\x00v\x00s\x00u\x00v\x00s\x00w\x00v\x00v\x00v\x00y\x00w\x00y\x00w\x00v\x00w\x00x\x00w\x00w\x00v\x00x\x00x\x00w\x00y\x00z\x00x\x00{\x00x\x00x\x00|\x00y\x00y\x00y\x00z\x00}\x00{\x00u\x00y\x00t\x00z\x00z\x00w\x00z\x00y\x00x\x00z\x00|\x00z\x00x\x00~\x00x\x00s\x00v\x00x\x00u\x00v\x00y\x00y\x00w\x00x\x00|\x00x\x00z\x00x\x00z\x00z\x00v\x00z\x00y\x00z\x00w\x00|\x00z\x00}\x00z\x00{\x00|\x00{\x00x\x00z\x00x\x00y\x00\x82\x00\x80\x00|\x00~\x00}\x00}\x00~\x00z\x00{\x00\x82\x00\x7f\x00\x7f\x00}\x00\x80\x00|\x00{\x00}\x00}\x00\x7f\x00{\x00\x80\x00\x80\x00\x80\x00{\x00|\x00\x7f\x00|\x00\x7f\x00}\x00{\x00\x7f\x00}\x00~\x00\x7f\x00}\x00{\x00\x7f\x00~\x00\x81\x00\x81\x00}\x00\x7f\x00\x82\x00|\x00~\x00{\x00}\x00x\x00y\x00{\x00|\x00y\x00y\x00\x81\x00v\x00y\x00~\x00z\x00z\x00u\x00}\x00z\x00x\x00u\x00{\x00t\x00y\x00u\x00v\x00y\x00v\x00y\x00u\x00v\x00s\x00t\x00v\x00v\x00v\x00x\x00t\x00s\x00u\x00q\x00r\x00u\x00r\x00w\x00t\x00r\x00q\x00o\x00s\x00m\x00p\x00n\x00o\x00t\x00q\x00m\x00t\x00m\x00q\x00n\x00o\x00r\x00t\x00p\x00t\x00r\x00o\x00p\x00t\x00r\x00v\x00s\x00s\x00v\x00t\x00r\x00r\x00p\x00s\x00p\x00q\x00n\x00r\x00o\x00m\x00n\x00q\x00o\x00q\x00r\x00s\x00o\x00n\x00r\x00p\x00s\x00q\x00u\x00s\x00n\x00s\x00t\x00r\x00w\x00s\x00t\x00u\x00u\x00u\x00u\x00v\x00t\x00t\x00r\x00p\x00u\x00q\x00s\x00v\x00w\x00t\x00u\x00t\x00o\x00s\x00r\x00q\x00s\x00u\x00u\x00s\x00u\x00s\x00s\x00t\x00u\x00u\x00r\x00o\x00p\x00p\x00r\x00q\x00u\x00p\x00v\x00u\x00r\x00r\x00t\x00s\x00p\x00r\x00t\x00s\x00r\x00p\x00o\x00p\x00p\x00q\x00r\x00u\x00p\x00q\x00q\x00s\x00o\x00o\x00r\x00n\x00p\x00q\x00s\x00t\x00q\x00u\x00s\x00v\x00t\x00t\x00v\x00t\x00s\x00w\x00s\x00s\x00v\x00\x80\x00w\x00y\x00v\x00x\x00u\x00t\x00w\x00w\x00x\x00v\x00x\x00t\x00q\x00x\x00r\x00v\x00z\x00u\x00t\x00x\x00z\x00w\x00z\x00v\x00x\x00s\x00v\x00{\x00t\x00w\x00v\x00r\x00t\x00y\x00u\x00w\x00s\x00x\x00v\x00x\x00u\x00v\x00{\x00t\x00t\x00w\x00z\x00z\x00q\x00s\x00x\x00t\x00s\x00s\x00u\x00u\x00r\x00t\x00v\x00x\x00u\x00t\x00r\x00t\x00u\x00w\x00q\x00v\x00u\x00x\x00v\x00v\x00t\x00p\x00n\x00t\x00p\x00s\x00u\x00v\x00r\x00s\x00r\x00s\x00u\x00|\x00x\x00y\x00o\x00s\x00r\x00t\x00v\x00r\x00r\x00t\x00s\x00v\x00s\x00w\x00r\x00s\x00q\x00r\x00r\x00r\x00p\x00p\x00u\x00s\x00t\x00o\x00r\x00t\x00w\x00t\x00v\x00t\x00u\x00w\x00v\x00t\x00s\x00u\x00s\x00q\x00v\x00{\x00v\x00o\x00v\x00r\x00w\x00u\x00w\x00v\x00w\x00r\x00q\x00r\x00q\x00t\x00o\x00q\x00q\x00r\x00t\x00r\x00o\x00r\x00t\x00q\x00s\x00q\x00n\x00q\x00q\x00k\x00s\x00q\x00p\x00r\x00q\x00p\x00o\x00o\x00l\x00t\x00t\x00r\x00o\x00r\x00n\x00s\x00r\x00n\x00n\x00r\x00s\x00n\x00u\x00p\x00i\x00r\x00n\x00n\x00n\x00p\x00l\x00n\x00n\x00o\x00r\x00n\x00n\x00p\x00o\x00p\x00p\x00l\x00o\x00q\x00r\x00m\x00q\x00q\x00o\x00q\x00m\x00q\x00p\x00r\x00o\x00n\x00q\x00n\x00n\x00o\x00k\x00o\x00v\x00q\x00m\x00o\x00p\x00o\x00o\x00n\x00r\x00s\x00p\x00n\x00q\x00p\x00o\x00o\x00q\x00n\x00s\x00p\x00n\x00w\x00s\x00t\x00s\x00l\x00o\x00o\x00q\x00q\x00l\x00p\x00k\x00p\x00q\x00m\x00q\x00p\x00r\x00s\x00n\x00n\x00l\x00n\x00n\x00o\x00m\x00l\x00r\x00n\x00n\x00k\x00m\x00m\x00n\x00l\x00o\x00o\x00n\x00p\x00m\x00m\x00k\x00i\x00j\x00n\x00k\x00k\x00p\x00m\x00l\x00j\x00j\x00i\x00m\x00m\x00k\x00l\x00h\x00j\x00k\x00n\x00m\x00j\x00h\x00o\x00q\x00m\x00o\x00l\x00k\x00l\x00l\x00m\x00n\x00n\x00l\x00n\x00n\x00n\x00k\x00k\x00n\x00m\x00n\x00m\x00m\x00n\x00o\x00r\x00o\x00p\x00n\x00p\x00m\x00r\x00k\x00p\x00n\x00o\x00n\x00o\x00u\x00n\x00n\x00o\x00q\x00o\x00q\x00r\x00v\x00m\x00\x7f\x00q\x00x\x00u\x00x\x00s\x00s\x00r\x00u\x00t\x00t\x00w\x00q\x00v\x00t\x00w\x00w\x00x\x00v\x00s\x00w\x00s\x00v\x00t\x00w\x00w\x00v\x00w\x00y\x00x\x00w\x00t\x00v\x00w\x00w\x00v\x00y\x00v\x00s\x00v\x00t\x00t\x00t\x00t\x00p\x00o\x00r\x00s\x00o\x00q\x00q\x00o\x00q\x00r\x00n\x00n\x00n\x00r\x00n\x00l\x00j\x00m\x00k\x00o\x00p\x00m\x00m\x00m\x00n\x00h\x00l\x00m\x00l\x00k\x00k\x00l\x00l\x00k\x00o\x00k\x00k\x00f\x00l\x00h\x00l\x00i\x00j\x00n\x00h\x00q\x00k\x00h\x00h\x00l\x00g\x00j\x00l\x00l\x00i\x00i\x00l\x00k\x00i\x00n\x00l\x00h\x00g\x00i\x00g\x00k\x00k\x00h\x00j\x00m\x00f\x00l\x00j\x00f\x00g\x00k\x00m\x00i\x00h\x00i\x00m\x00h\x00j\x00h\x00g\x00j\x00i\x00f\x00h\x00k\x00i\x00f\x00o\x00g\x00c\x00f\x00e\x00d\x00d\x00f\x00e\x00d\x00j\x00c\x00d\x00f\x00f\x00d\x00e\x00c\x00b\x00h\x00f\x00e\x00b\x00`\x00`\x00e\x00b\x00d\x00i\x00d\x00f\x00d\x00e\x00f\x00i\x00d\x00e\x00g\x00i\x00f\x00d\x00j\x00i\x00f\x00j\x00f\x00e\x00c\x00c\x00h\x00h\x00i\x00g\x00f\x00k\x00b\x00g\x00d\x00i\x00d\x00e\x00g\x00h\x00j\x00e\x00l\x00g\x00i\x00f\x00c\x00d\x00f\x00g\x00c\x00d\x00e\x00a\x00g\x00g\x00d\x00f\x00b\x00d\x00e\x00i\x00h\x00c\x00h\x00h\x00f\x00j\x00i\x00l\x00i\x00j\x00l\x00c\x00i\x00m\x00j\x00k\x00n\x00i\x00f\x00g\x00h\x00i\x00h\x00i\x00i\x00g\x00h\x00i\x00i\x00i\x00i\x00c\x00l\x00f\x00e\x00i\x00j\x00h\x00c\x00f\x00f\x00g\x00g\x00l\x00f\x00i\x00h\x00e\x00h\x00f\x00f\x00d\x00h\x00g\x00e\x00b\x00d\x00]\x00a\x00f\x00b\x00c\x00a\x00c\x00a\x00e\x00a\x00f\x00g\x00b\x00`\x00a\x00a\x00d\x00`\x00d\x00d\x00a\x00b\x00_\x00c\x00^\x00c\x00e\x00`\x00b\x00e\x00_\x00g\x00b\x00b\x00e\x00a\x00a\x00b\x00d\x00d\x00a\x00f\x00d\x00`\x00e\x00a\x00b\x00g\x00d\x00`\x00h\x00f\x00f\x00`\x00c\x00e\x00e\x00d\x00a\x00f\x00b\x00c\x00d\x00f\x00a\x00c\x00e\x00f\x00d\x00f\x00h\x00c\x00d\x00g\x00g\x00b\x00a\x00d\x00^\x00b\x00b\x00d\x00g\x00`\x00`\x00]\x00c\x00b\x00d\x00_\x00a\x00b\x00b\x00b\x00`\x00d\x00e\x00`\x00a\x00b\x00b\x00a\x00^\x00`\x00^\x00]\x00]\x00b\x00^\x00b\x00]\x00a\x00[\x00]\x00_\x00^\x00\\\x00a\x00b\x00]\x00^\x00_\x00^\x00Z\x00\\\x00]\x00Z\x00[\x00Y\x00\\\x00[\x00]\x00]\x00\\\x00W\x00\\\x00[\x00Z\x00[\x00Z\x00]\x00a\x00Y\x00b\x00Y\x00]\x00\\\x00W\x00]\x00]\x00]\x00^\x00\\\x00\\\x00\\\x00Y\x00W\x00Z\x00W\x00Z\x00]\x00]\x00X\x00[\x00\\\x00X\x00\\\x00\\\x00]\x00[\x00\\\x00Y\x00[\x00[\x00Z\x00]\x00T\x00Y\x00]\x00\\\x00Y\x00\\\x00U\x00Z\x00[\x00W\x00Z\x00Z\x00^\x00[\x00\\\x00[\x00[\x00Z\x00\\\x00[\x00\\\x00Y\x00[\x00]\x00[\x00T\x00Z\x00\\\x00W\x00]\x00\\\x00e\x00Z\x00W\x00Z\x00Y\x00[\x00X\x00Y\x00\\\x00X\x00Z\x00[\x00[\x00\\\x00\\\x00\\\x00U\x00]\x00Y\x00U\x00W\x00U\x00X\x00V\x00T\x00U\x00T\x00V\x00W\x00U\x00V\x00S\x00W\x00U\x00V\x00V\x00S\x00R\x00P\x00R\x00T\x00T\x00R\x00V\x00Y\x00W\x00U\x00O\x00S\x00S\x00O\x00P\x00P\x00T\x00O\x00T\x00S\x00M\x00S\x00P\x00Q\x00O\x00T\x00T\x00P\x00V\x00X\x00S\x00V\x00W\x00V\x00T\x00V\x00S\x00T\x00V\x00S\x00X\x00S\x00X\x00V\x00X\x00S\x00V\x00X\x00W\x00W\x00S\x00V\x00Z\x00Y\x00X\x00_\x00[\x00Z\x00Y\x00X\x00U\x00Y\x00W\x00Y\x00V\x00Z\x00]\x00V\x00X\x00U\x00\\\x00Y\x00X\x00W\x00Z\x00W\x00X\x00Z\x00Y\x00Z\x00Z\x00\\\x00X\x00[\x00]\x00Z\x00]\x00^\x00Z\x00[\x00a\x00V\x00Z\x00]\x00^\x00\\\x00W\x00_\x00Z\x00Z\x00[\x00Z\x00\\\x00Z\x00^\x00[\x00_\x00\\\x00\\\x00Y\x00Z\x00Y\x00W\x00Y\x00Y\x00Y\x00Y\x00[\x00W\x00V\x00U\x00S\x00U\x00V\x00X\x00W\x00Z\x00[\x00W\x00V\x00Z\x00Z\x00T\x00W\x00W\x00W\x00X\x00W\x00U\x00_\x00T\x00V\x00X\x00T\x00U\x00U\x00R\x00V\x00X\x00Z\x00V\x00W\x00Q\x00W\x00R\x00U\x00U\x00U\x00V\x00V\x00V\x00T\x00S\x00U\x00R\x00V\x00U\x00R\x00T\x00U\x00R\x00T\x00Q\x00P\x00T\x00R\x00P\x00M\x00S\x00U\x00T\x00W\x00P\x00U\x00U\x00P\x00S\x00P\x00T\x00R\x00S\x00U\x00Q\x00T\x00T\x00U\x00O\x00P\x00Q\x00Q\x00R\x00R\x00P\x00P\x00S\x00N\x00R\x00Q\x00P\x00P\x00N\x00N\x00P\x00Q\x00T\x00O\x00M\x00Q\x00O\x00O\x00L\x00U\x00P\x00R\x00M\x00I\x00I\x00O\x00M\x00O\x00L\x00J\x00G\x00M\x00J\x00P\x00J\x00N\x00K\x00K\x00I\x00O\x00N\x00J\x00H\x00L\x00L\x00O\x00K\x00O\x00M\x00K\x00N\x00P\x00O\x00O\x00M\x00N\x00O\x00O\x00O\x00K\x00Q\x00N\x00M\x00J\x00H\x00M\x00J\x00M\x00Q\x00L\x00O\x00J\x00N\x00O\x00P\x00N\x00M\x00Q\x00M\x00Q\x00M\x00N\x00K\x00O\x00Q\x00L\x00P\x00M\x00L\x00P\x00O\x00P\x00R\x00K\x00O\x00R\x00S\x00S\x00R\x00Q\x00O\x00R\x00T\x00Q\x00R\x00Q\x00S\x00P\x00Q\x00R\x00Q\x00U\x00U\x00T\x00L\x00N\x00M\x00L\x00S\x00P\x00P\x00N\x00P\x00N\x00R\x00S\x00O\x00M\x00U\x00Q\x00O\x00R\x00R\x00M\x00O\x00O\x00N\x00O\x00N\x00U\x00O\x00Q\x00T\x00N\x00J\x00R\x00M\x00O\x00S\x00P\x00S\x00O\x00R\x00R\x00O\x00M\x00U\x00K\x00P\x00N\x00P\x00M\x00M\x00P\x00L\x00Q\x00R\x00R\x00Q\x00S\x00P\x00Q\x00R\x00N\x00P\x00Q\x00Q\x00S\x00R\x00O\x00Q\x00P\x00P\x00R\x00P\x00Q\x00Q\x00Q\x00P\x00Q\x00T\x00Q\x00M\x00P\x00Q\x00P\x00P\x00N\x00P\x00P\x00T\x00V\x00T\x00L\x00M\x00P\x00N\x00S\x00P\x00S\x00R\x00P\x00R\x00O\x00Q\x00O\x00L\x00M\x00N\x00K\x00M\x00O\x00P\x00L\x00N\x00L\x00N\x00L\x00N\x00M\x00K\x00M\x00L\x00K\x00O\x00O\x00R\x00M\x00O\x00Q\x00R\x00O\x00M\x00N\x00P\x00Q\x00K\x00J\x00L\x00K\x00N\x00L\x00H\x00K\x00F\x00H\x00L\x00I\x00I\x00H\x00H\x00J\x00I\x00I\x00K\x00G\x00F\x00H\x00G\x00I\x00G\x00L\x00H\x00I\x00H\x00H\x00F\x00J\x00K\x00I\x00I\x00H\x00I\x00A\x00J\x00F\x00J\x00F\x00G\x00N\x00P\x00H\x00K\x00I\x00K\x00F\x00M\x00H\x00H\x00I\x00I\x00E\x00I\x00E\x00H\x00H\x00I\x00E\x00L\x00H\x00M\x00I\x00L\x00J\x00K\x00G\x00G\x00I\x00I\x00J\x00J\x00I\x00I\x00K\x00K\x00H\x00G\x00F\x00I\x00C\x00E\x00G\x00D\x00I\x00I\x00D\x00G\x00E\x00G\x00F\x00H\x00G\x00E\x00G\x00G\x00I\x00E\x00I\x00G\x00G\x00I\x00I\x00H\x00I\x00G\x00F\x00I\x00I\x00H\x00E\x00H\x00L\x00I\x00M\x00H\x00G\x00L\x00I\x00H\x00C\x00I\x00H\x00G\x00J\x00I\x00H\x00J\x00K\x00I\x00K\x00E\x00G\x00G\x00G\x00F\x00F\x00I\x00I\x00G\x00I\x00G\x00K\x00F\x00G\x00K\x00K\x00I\x00D\x00H\x00H\x00K\x00G\x00F\x00M\x00I\x00G\x00G\x00F\x00H\x00F\x00E\x00E\x00J\x00L\x00E\x00D\x00G\x00A\x00C\x00E\x00G\x00D\x00F\x00F\x00A\x00J\x00H\x00E\x00I\x00H\x00D\x00D\x00J\x00H\x00G\x00E\x00N\x00C\x00F\x00E\x00G\x00E\x00E\x00E\x00G\x00H\x00F\x00I\x00G\x00G\x00I\x00H\x00J\x00H\x00J\x00H\x00J\x00L\x00K\x00K\x00H\x00M\x00H\x00J\x00I\x00L\x00K\x00M\x00J\x00J\x00I\x00K\x00K\x00O\x00M\x00M\x00J\x00J\x00O\x00P\x00S\x00P\x00Q\x00M\x00O\x00N\x00O\x00Q\x00Q\x00M\x00M\x00J\x00Q\x00M\x00N\x00M\x00N\x00Q\x00P\x00R\x00N\x00M\x00K\x00L\x00L\x00J\x00J\x00N\x00N\x00V\x00L\x00P\x00L\x00P\x00I\x00J\x00M\x00J\x00L\x00M\x00O\x00O\x00K\x00M\x00K\x00M\x00L\x00L\x00K\x00K\x00N\x00L\x00I\x00J\x00L\x00M\x00N\x00I\x00O\x00N\x00K\x00J\x00K\x00K\x00I\x00L\x00I\x00K\x00H\x00G\x00J\x00G\x00I\x00L\x00K\x00H\x00K\x00F\x00N\x00G\x00H\x00L\x00G\x00E\x00J\x00I\x00J\x00G\x00H\x00B\x00H\x00B\x00E\x00G\x00G\x00H\x00G\x00J\x00F\x00C\x00K\x00F\x00G\x00H\x00I\x00H\x00H\x00H\x00G\x00I\x00I\x00J\x00E\x00D\x00M\x00E\x00F\x00H\x00C\x00D\x00C\x00G\x00I\x00H\x00G\x00E\x00E\x00I\x00D\x00E\x00I\x00L\x00J\x00F\x00H\x00G\x00G\x00D\x00F\x00E\x00H\x00H\x00G\x00K\x00I\x00H\x00H\x00K\x00K\x00H\x00I\x00K\x00I\x00G\x00G\x00D\x00E\x00L\x00J\x00D\x00I\x00F\x00G\x00F\x00F\x00C\x00E\x00G\x00E\x00D\x00E\x00G\x00F\x00C\x00E\x00I\x00I\x00F\x00G\x00G\x00F\x00F\x00I\x00G\x00H\x00F\x00J\x00E\x00D\x00H\x00B\x00I\x00E\x00A\x00G\x00G\x00C\x00B\x00F\x00D\x00E\x00J\x00E\x00I\x00F\x00H\x00K\x00J\x00H\x00J\x00I\x00I\x00G\x00H\x00G\x00I\x00D\x00K\x00I\x00G\x00K\x00H\x00I\x00H\x00G\x00G\x00G\x00I\x00J\x00I\x00L\x00G\x00I\x00G\x00F\x00G\x00J\x00I\x00J\x00K\x00N\x00G\x00J\x00L\x00J\x00K\x00H\x00K\x00K\x00I\x00N\x00L\x00K\x00I\x00H\x00H\x00K\x00G\x00L\x00M\x00J\x00I\x00L\x00N\x00I\x00I\x00H\x00G\x00F\x00J\x00L\x00J\x00K\x00E\x00I\x00M\x00L\x00K\x00K\x00G\x00M\x00E\x00K\x00G\x00I\x00K\x00M\x00K\x00J\x00J\x00H\x00J\x00I\x00D\x00F\x00J\x00M\x00L\x00H\x00E\x00H\x00I\x00G\x00H\x00F\x00K\x00K\x00M\x00F\x00K\x00I\x00K\x00M\x00L\x00J\x00K\x00N\x00I\x00M\x00O\x00O\x00I\x00G\x00L\x00M\x00M\x00I\x00G\x00L\x00J\x00K\x00I\x00G\x00H\x00H\x00D\x00J\x00L\x00Q\x00I\x00D\x00J\x00G\x00G\x00D\x00F\x00H\x00I\x00M\x00G\x00H\x00E\x00J\x00F\x00G\x00H\x00H\x00F\x00F\x00D\x00H\x00F\x00I\x00A\x00E\x00E\x00G\x00E\x00D\x00E\x00G\x00A\x00F\x00F\x00F\x00C\x00G\x00G\x00E\x00E\x00E\x00I\x00D\x00H\x00A\x00F\x00G\x00H\x00H\x00G\x00D\x00D\x00H\x00F\x00K\x00K\x00E\x00F\x00J\x00I\x00J\x00I\x00E\x00D\x00H\x00I\x00F\x00D\x00E\x00H\x00G\x00F\x00I\x00D\x00D\x00G\x00H\x00E\x00H\x00E\x00J\x00J\x00G\x00H\x00C\x00D\x00G\x00M\x00C\x00F\x00A\x00C\x00@\x00F\x00B\x00H\x00C\x00E\x00A\x00D\x00J\x00H\x00E\x00F\x00F\x00F\x00H\x00G\x00D\x00D\x00F\x00I\x00F\x00G\x00J\x00G\x00H\x00C\x00E\x00I\x00F\x00I\x00G\x00E\x00E\x00I\x00H\x00G\x00F\x00I\x00D\x00J\x00H\x00J\x00L\x00F\x00F\x00C\x00B\x00I\x00G\x00F\x00G\x00D\x00I\x00H\x00E\x00C\x00E\x00D\x00H\x00I\x00B\x00B\x00D\x00C\x00A\x00C\x00@\x00C\x00E\x00H\x00H\x00H\x00C\x00B\x00E\x00E\x00@\x00E\x00F\x00E\x00F\x00A\x00H\x00D\x00C\x00C\x00C\x00A\x00E\x00A\x00A\x00D\x00C\x00B\x00D\x00C\x00A\x00?\x00C\x00B\x00C\x00D\x00E\x00B\x00E\x00E\x00F\x00B\x00C\x00H\x00C\x00B\x00B\x00B\x00C\x00C\x00D\x00C\x00D\x00F\x00D\x00C\x00B\x00A\x00C\x00D\x00J\x00I\x00E\x00F\x00C\x00G\x00G\x00G\x00E\x00E\x00D\x00D\x00I\x00I\x00F\x00I\x00E\x00F\x00M\x00K\x00I\x00I\x00K\x00J\x00K\x00K\x00F\x00K\x00J\x00J\x00I\x00K\x00L\x00K\x00J\x00M\x00K\x00J\x00K\x00Q\x00J\x00M\x00J\x00F\x00S\x00T\x00P\x00M\x00O\x00O\x00O\x00O\x00O\x00O\x00O\x00N\x00O\x00N\x00O\x00L\x00P\x00J\x00K\x00Q\x00R\x00P\x00L\x00K\x00P\x00J\x00P\x00J\x00I\x00M\x00N\x00K\x00L\x00G\x00L\x00I\x00H\x00I\x00E\x00H\x00L\x00L\x00J\x00F\x00E\x00K\x00H\x00G\x00I\x00F\x00I\x00J\x00G\x00I\x00I\x00G\x00H\x00G\x00F\x00I\x00H\x00D\x00H\x00G\x00G\x00K\x00G\x00D\x00M\x00J\x00J\x00J\x00F\x00G\x00J\x00I\x00I\x00D\x00F\x00J\x00K\x00D\x00D\x00D\x00C\x00D\x00C\x00C\x00G\x00D\x00G\x00A\x00E\x00B\x00C\x00@\x00B\x00D\x00B\x00A\x00B\x00=\x00E\x00B\x00D\x00A\x00F\x00G\x00F\x00A\x00B\x00D\x00G\x00E\x00D\x00E\x00G\x00G\x00E\x00I\x00E\x00F\x00E\x00I\x00C\x00D\x00H\x00B\x00A\x00B\x00D\x00D\x00E\x00@\x00E\x00A\x00@\x00E\x00C\x00D\x00C\x00B\x00B\x00F\x00D\x00I\x00C\x00B\x00E\x00G\x00@\x00A\x00B\x00D\x00A\x00?\x00@\x00H\x00E\x00@\x00D\x00D\x00D\x00H\x00B\x00C\x00B\x00K\x00@\x00D\x00G\x00F\x00B\x00F\x00D\x00G\x00M\x00A\x00F\x00C\x00A\x00F\x00D\x00C\x00D\x00G\x00G\x00G\x00H\x00E\x00D\x00D\x00E\x00D\x00C\x00C\x00D\x00H\x00K\x00G\x00K\x00L\x00L\x00J\x00N\x00K\x00I\x00M\x00H\x00G\x00L\x00L\x00L\x00I\x00K\x00N\x00K\x00L\x00L\x00L\x00N\x00K\x00L\x00K\x00I\x00H\x00M\x00K\x00L\x00I\x00P\x00O\x00M\x00K\x00L\x00K\x00M\x00P\x00K\x00N\x00N\x00I\x00J\x00K\x00I\x00N\x00I\x00I\x00M\x00I\x00E\x00J\x00K\x00I\x00K\x00K\x00J\x00J\x00'
+>>> from PIL import Image, ImageDraw, ImageEnhance, ImageFont
+>>> import random
+>>> import numpy as np
+
+>>> from numpy import array
+>>> from matplotlib import pyplot as plt
+>>> from noise import snoise3, snoise2
+>>> import math
+>>> import queue
+>>> from datetime import *
+>>> import pyaudio
+>>> norm = plt.Normalize()
+>>>
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+>>>             wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+  File "<stdin>", line 1
+    wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+    ^
+IndentationError: unexpected indent
+>>>             np_array_data = np.array(wave_data)
+  File "<stdin>", line 1
+    np_array_data = np.array(wave_data)
+    ^
+IndentationError: unexpected indent
+>>>             audio_data = np.abs(np_array_data * window)
+  File "<stdin>", line 1
+    audio_data = np.abs(np_array_data * window)
+    ^
+IndentationError: unexpected indent
+>>>             audio_data = audio_data[::int(CHUNK / 64)]
+  File "<stdin>", line 1
+    audio_data = audio_data[::int(CHUNK / 64)]
+    ^
+IndentationError: unexpected indent
+>>>             max_ = max(audio_data)
+  File "<stdin>", line 1
+    max_ = max(audio_data)
+    ^
+IndentationError: unexpected indent
+>>>
+>>>             norm2 = plt.Normalize(0, max_)
+  File "<stdin>", line 1
+    norm2 = plt.Normalize(0, max_)
+    ^
+IndentationError: unexpected indent
+>>>             audio_data = 16 * norm2(audio_data)
+  File "<stdin>", line 1
+    audio_data = 16 * norm2(audio_data)
+    ^
+IndentationError: unexpected indent
+>>>
+>>>             img = Image.new('RGB', (self.screen_width, self.screen_height))
+  File "<stdin>", line 1
+    img = Image.new('RGB', (self.screen_width, self.screen_height))
+    ^
+IndentationError: unexpected indent
+>>>             print(max_)
+  File "<stdin>", line 1
+    print(max_)
+    ^
+IndentationError: unexpected indent
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+>>>             wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+  File "<stdin>", line 1
+    wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+    ^
+IndentationError: unexpected indent
+>>>             np_array_data = np.array(wave_data)
+  File "<stdin>", line 1
+    np_array_data = np.array(wave_data)
+    ^
+IndentationError: unexpected indent
+>>>             audio_data = np.abs(np_array_data * window)
+  File "<stdin>", line 1
+    audio_data = np.abs(np_array_data * window)
+    ^
+IndentationError: unexpected indent
+>>>             audio_data = audio_data[::int(CHUNK / 64)]
+  File "<stdin>", line 1
+    audio_data = audio_data[::int(CHUNK / 64)]
+    ^
+IndentationError: unexpected indent
+>>>             max_ = max(audio_data)
+  File "<stdin>", line 1
+    max_ = max(audio_data)
+    ^
+IndentationError: unexpected indent
+>>>             data = stream.read(CHUNK, exception_on_overflow=False)
+  File "<stdin>", line 1
+    data = stream.read(CHUNK, exception_on_overflow=False)
+    ^
+IndentationError: unexpected indent
+>>>             data = stream.read(CHUNK, exception_on_overflow=False)
+  File "<stdin>", line 1
+    data = stream.read(CHUNK, exception_on_overflow=False)
+    ^
+IndentationError: unexpected indent
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'wave' is not defined
+>>> np_array_data = np.array(wave_data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'wave_data' is not defined
+>>> audio_data = np.abs(np_array_data * window)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'np_array_data' is not defined
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'audio_data' is not defined
+>>> max_ = max(audio_data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'audio_data' is not defined
+>>> norm2 = plt.Normalize(0, max_)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'max_' is not defined
+>>> audio_data = 16 * norm2(audio_data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'norm2' is not defined
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'wave' is not defined
+>>> np_array_data = np.array(wave_data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'wave_data' is not defined
+>>> audio_data = np.abs(np_array_data * window)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'np_array_data' is not defined
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'audio_data' is not defined
+>>> max_ = max(audio_data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'audio_data' is not defined
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'wave' is not defined
+>>> import wavee
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named 'wavee'
+>>> import wave
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'window' is not defined
+>>> window = np.blackman(CHUNK)
+>>> audio_data = np.abs(np_array_data * window)
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+>>> max_ = max(audio_data)
+>>> print(max_)
+11.9863513396638
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+>>> max_ = max(audio_data)
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+>>> max_ = max(audio_data)
+>>> print(max_)
+55.462970411515336
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+>>> max_ = max(audio_data)
+>>> print(max_)
+22.82227008511835
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+>>> max_ = max(audio_data)
+>>> print(max_)
+15.989182086374635
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+>>> max_ = max(audio_data)
+>>> print(max_)
+12.493769617093923
+>>> data = stream.read(CHUNK, exception_on_overflow=False)
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+>>> max_ = max(audio_data)
+>>> print(max_)
+15.336304032331778
+>>> while 1:
+... data = stream.read(CHUNK, exception_on_overflow=False)
+  File "<stdin>", line 2
+    data = stream.read(CHUNK, exception_on_overflow=False)
+       ^
+IndentationError: expected an indented block
+>>> wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+>>> np_array_data = np.array(wave_data)
+>>> audio_data = np.abs(np_array_data * window)
+>>> audio_data = audio_data[::int(CHUNK / 64)]
+>>> max_ = max(audio_data)
+>>> print(max_)
+15.336304032331778
+>>> while 1:
+...     data = stream.read(CHUNK, exception_on_overflow=False)
+...     wave_data = wave.struct.unpack("%dh" % CHUNK, data)
+...     np_array_data = np.array(wave_data)
+...     audio_data = np.abs(np_array_data * window)
+...     audio_data = audio_data[::int(CHUNK / 64)]
+...     max_ = max(audio_data)
+...     print(max_)
+...
+20.531509663218653
+14.179751986564048
+14.52325417004994
+20.978033801183248
+14.484287141646679
+12.10271180837495
+17.617903253453516
+21.78920520594892
+16.727176814549203
+27.289987246888074
+24.708489829867865
+13.386181732600631
+21.02921825439637
+18.440540522559694
+16.838455484044808
+14.989992003112253
+17.848242310134175
+51.545748190378944
+40.22041331440835
+51.12101344110593
+22.9409653684324
+20.531509663218653
+35.7218140462722
+40.91853472521258
+48.496041155807504
+47.29784212185556
+20.171186347291584
+30.76045098428995
+30.308419026656107
+13.32368897544391
+25.750878879757817
+13.830405391919768
+24.752346849020856
+28.353037153968614
+27.970199258963458
+20.44840537644237
+15.336304032331778
+31.286109962999852
+1233.0768885532416
+69.32928929165566
+57.605242445416444
+122.35181529830615
+81.13837829926264
+98.37202940678809
+66.68205658923532
+66.76258074992911
+24.80681530991125
+27.599070020562383
+23.77004204285337
+30.278418993668737
+80.37408160411245
+63.50591575959213
+151.8026431279177
+69.9091119668042
+30.660203247883207
+26.964943187195907
+21.02921825439637
+20.073344697378353
+22.779623624401143
+40.922758996006294
+26.981744770757196
+19.55381872687491
+17.8609070231361
+18.440540522559694
+33.0807456095582
+27.73171571666226
+17.040337813701974
+16.030211113942986
+26.74129729821004
+14.338103355270253
+466.7027533495617
+80.29337878951341
+16.838455484044808
+12.407282988243542
+14.179751986564048
+9.589782603073186
+12.670351221769463
+14.980523992886615
+11.076219578906285
+11.4704826842162
+20.531509663218653
+19.97871375640247
+14.338103355270253
+13.382229798252235
+911.3833789233541
+62.19723302001221
+21.971435189567035
+30.988685144210965
+25.340702443538927
+36.242216431523275
+16.178765184467604
+23.77004204285337
+23.042096978166576
+12.675183981240723
+20.531509663218653
+24.987539234187846
+17.750643985616595
+11.830171715824676
+30.979040292350856
+14.619636025118611
+15.674459444175739
+23.050675653199615
+16.977927191938164
+22.97013678909281
+14.52325417004994
+20.280294369985157
+11.127096791654854
+13.830405391919768
+12.741493202645415
+14.88408918594675
+  GNU nano 2.7.4                                                                 File: pyaudio_test.py
+
+import pyaudio
+
+screen_height = 16
+screen_width = 64
+delta_t = 0.1
+clk = 0
+
+FORMAT = pyaudio.paInt16
+CHANNELS = 1
+RATE = 44100
+CHUNK = int(RATE / (1 / delta_t))# 2048 # RATE / number of updates per second
+RECORD_SECONDS = 20
+
+pa = pyaudio.PyAudio()
+
+
+print('opening stream')
+stream = pa.open(
+        format=pyaudio.paInt16,
+        channels=1,
+        input_device_index = 0,
+        rate=RATE,
+        input=True,
+        frames_per_buffer=CHUNK)
+#stream = pa.open(
+#        format = pyaudio.paInt16,
+#        channels = 1,
+#        rate = 44100,
+#        input_device_index = 4, # this needs to be tested
+#        input = True,
+#       frames_per_buffer=CHUNK)
+print('stream opened')
+
+fadsfalkjfa;ldkfja;lkdfjas;dlfkjasd;lfkjasdf;lkajsdfjjj
+
+
+
+
+
+
+
+
+
+
+
+                                                                                [ Read 32 lines ]
+^G Get Help      ^O Write Out     ^W Where Is      ^K Cut Text      ^J Justify       ^C Cur Pos       ^Y Prev Page     M-\ First Line   M-W WhereIs Next ^^ Mark Text

@@ -228,9 +228,11 @@ class PerlinBackground(Background):
             audio_data = np.abs(np_array_data * window)
             audio_data = audio_data[::int(CHUNK / 64)]
             max_ = max(audio_data)
+            #if max_ < 20.0:
+            #    audio_data *= 0
 
             norm2 = plt.Normalize(0, max_)
-            # self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
+           # self.__audio_data = gaussian_filter1d(16 * norm2(audio_data), 1)
             self.__audio_data = 16 * norm2(audio_data)
             
             # print('here')

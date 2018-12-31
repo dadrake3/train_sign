@@ -1,6 +1,6 @@
 import lirc
 
-lirc.init("myprogram")
+lirc.init("ledsign")
 while 1:
     c = lirc.nextcode()
     print(c)
